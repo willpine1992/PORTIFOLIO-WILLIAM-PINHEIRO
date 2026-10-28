@@ -2,7 +2,7 @@
 
 Bilingual portfolio of a PhD chemist working as a **Chemistry Data Analyst**: chemometrics, explainable ML, ETL pipelines and public dashboards.
 
-**Live:** https://willpine1992.github.io/data-portfolio/ (EN: `#en` · PT: `#pt`)
+**Live:** https://willpine1992.github.io/PORTIFOLIO-WILLIAM-PINHEIRO/ (EN: `#en` · PT: `#pt`)
 
 PDF downloads: [English](Portfolio_William_Pinheiro_Data_EN.pdf) · [Português](Portfolio_William_Pinheiro_Dados.pdf)
 
