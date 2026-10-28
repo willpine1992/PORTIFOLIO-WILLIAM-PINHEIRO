@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio · William Pinheiro · Data</title>
+<meta name="description" content="William Pinheiro — Chemistry Data Analyst (PhD in Materials Chemistry). Chemometrics, explainable ML, ETL and dashboards. Portfolio in English and Portuguese.">
+<meta property="og:title" content="William Pinheiro · Data Portfolio (EN/PT)">
+<meta property="og:description" content="From the chemistry bench to the algorithm: chemometrics, explainable ML, ETL pipelines and public dashboards.">
+<meta property="og:image" content="img/cover_globe.jpg">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+:root{
+  --paper:#f5f2ea; --ink:#14211b; --ink2:#3b463f; --muted:#7a7a70; --rule:#d9d2c3;
+  --green:#0f5c3a; --green2:#1f8a5b; --leaf:#9fd3a8; --accent:#e4572e; --gold:#d9a521; --night:#0d1713;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:Inter,sans-serif;color:var(--ink);font-size:9.2pt;line-height:1.48;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--paper);page-break-after:always;break-after:page;margin:0 auto}
+.page:last-child{page-break-after:auto}
+.pad{position:absolute;inset:14mm 14mm 16mm 14mm}
+img{display:block;max-width:100%}
+.serif{font-family:Fraunces,serif}
+.mono{font-family:'JetBrains Mono',monospace}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:7.2pt;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1.title{font-family:Fraunces,serif;font-weight:900;line-height:.95;letter-spacing:-.02em}
+.deck{font-family:Fraunces,serif;font-style:italic;font-weight:400;color:var(--ink2)}
+p{margin-bottom:.62em;text-align:justify;hyphens:auto}
+.cols2{column-count:2;column-gap:7mm}
+.cols3{column-count:3;column-gap:6mm}
+.dropcap::first-letter{font-family:Fraunces,serif;font-weight:900;float:left;font-size:42pt;line-height:.82;padding:3pt 5pt 0 0;color:var(--green)}
+.folio{position:absolute;bottom:7mm;left:14mm;right:14mm;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6.6pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;border-top:.5pt solid var(--rule);padding-top:2mm}
+.shot{border-radius:2.5mm;overflow:hidden;box-shadow:0 1.5mm 5mm rgba(20,33,27,.18),0 0 0 .3mm rgba(20,33,27,.08)}
+.shot img{width:100%}
+.cap{font-size:7pt;color:var(--muted);margin-top:1.6mm;line-height:1.35}
+.cap b{color:var(--ink);font-weight:600}
+.stats{display:grid;gap:3mm}
+.stat .n{font-family:Fraunces,serif;font-weight:900;font-size:24pt;line-height:1;color:var(--green)}
+.stat .l{font-size:7pt;color:var(--ink2);margin-top:1mm;line-height:1.3}
+.box{background:#fff;border-left:1.2mm solid var(--accent);padding:3.5mm 4mm;border-radius:0 2mm 2mm 0}
+.box h4{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5mm}
+.box p,.box li{font-size:8.2pt}
+.box ul{padding-left:4mm}.box li{margin-bottom:1mm}
+.tags{display:flex;flex-wrap:wrap;gap:1.4mm}
+.tag{font-family:'JetBrains Mono',monospace;font-size:6.5pt;padding:.8mm 2mm;border:.4pt solid var(--green);color:var(--green);border-radius:5mm;white-space:nowrap}
+.rule{height:.6mm;background:var(--ink);margin:3mm 0}
+.pull{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:15pt;line-height:1.2;color:var(--green);border-top:.8mm solid var(--green);border-bottom:.3mm solid var(--green);padding:3mm 0}
+.dark{background:var(--night);color:#e9efe9}
+.dark .folio{color:#8aa394;border-color:#2a3a32}
+.num{font-family:Fraunces,serif;font-weight:900;color:var(--accent)}
+.s5 .n{font-size:20pt}
+.flow{display:flex;align-items:stretch;gap:1.5mm}
+.flow .s{flex:1;background:#fff;border-radius:2mm;padding:2.6mm;border-top:1mm solid var(--green2)}
+.flow .s b{display:block;font-family:'JetBrains Mono',monospace;font-size:6.6pt;letter-spacing:.1em;color:var(--green);margin-bottom:1mm}
+.flow .s span{font-size:7.3pt;line-height:1.35;display:block}
+.flow .ar{align-self:center;color:var(--accent);font-weight:700;font-size:12pt}
+</style>
+
+<style>
+html,body{background:#2b302d}
+body{padding:64px 0 32px}
+.page{zoom:var(--z,1);margin:0 auto 24px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.bar{position:fixed;top:0;left:0;right:0;z-index:10;height:52px;display:flex;align-items:center;gap:12px;
+  padding:0 16px;background:rgba(13,23,19,.94);backdrop-filter:blur(6px);color:#e9efe9;
+  font:500 14px/1 Inter,sans-serif;border-bottom:1px solid #2a3a32}
+.bar .nm{font-family:Fraunces,serif;font-weight:700;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .sp{flex:1}
+.bar a,.bar button{font:600 12px/1 'JetBrains Mono',monospace;letter-spacing:.06em;color:#e9efe9;text-decoration:none;
+  border:1px solid #3d5247;background:none;border-radius:16px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.bar button[aria-pressed=true]{background:#9fd3a8;color:#0d1713;border-color:#9fd3a8}
+.bar a:hover,.bar button:hover{border-color:#9fd3a8}
+html[lang=pt-BR] .lang-en,html[lang=en] .lang-pt{display:none}
+@media (max-width:560px){.bar .nm{display:none}.bar a .lbl{display:none}}
+@media print{.bar{display:none}body{padding:0;background:none}.page{zoom:1;margin:0;box-shadow:none}}
+</style>
+
+</head>
+<body>
+<nav class="bar">
+  <span class="nm">William Pinheiro · Data</span><span class="sp"></span>
+  <button data-l="pt" aria-pressed="false">PT</button>
+  <button data-l="en" aria-pressed="true">EN</button>
+  <a id="pdf" href="Portfolio_William_Pinheiro_Data_EN.pdf" download>PDF<span class="lbl"> ↓</span></a>
+  <a href="https://www.linkedin.com/in/dr-william-pinheiro-chemistry/" target="_blank" rel="noopener">in<span class="lbl"> LinkedIn</span></a>
+</nav>
+<main class="lang-en" lang="en">
+
+
+<!-- ============ 1 · COVER ============ -->
+<section class="page dark" style="background:#0a100c">
+  <img src="img/cover_globe.jpg" style="position:absolute;left:-12mm;top:66mm;width:235mm;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 62%,transparent 100%)">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0a100c 0%,rgba(10,16,12,0) 30%,rgba(10,16,12,0) 60%,#0a100c 92%)"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.2em;color:var(--leaf);text-transform:uppercase">
+      <span>Issue no. 01</span><span>Data Portfolio · Manaus, Brazil · October 2026</span>
+    </div>
+    <h1 class="title" style="font-size:96pt;color:#f5f2ea;margin-top:5mm;letter-spacing:-.04em">Data<span style="color:var(--accent)">.</span></h1>
+    <div style="font-family:Fraunces,serif;font-size:17pt;font-style:italic;color:#cfe3d4;margin-top:-1mm">from the chemistry bench to the algorithm</div>
+
+    <div style="position:absolute;right:0;top:14mm;width:62mm;text-align:right">
+      <div class="kicker" style="color:var(--gold)">Cover story</div>
+      <div class="serif" style="font-size:16pt;font-weight:700;line-height:1.1;color:#fff;margin-top:1.5mm">The algorithm linking the Amazon to 384 universities worldwide</div>
+      <div style="font-size:8pt;color:#b9cdbf;margin-top:2mm">Sentence-BERT + OpenAlex across 58,084 research connections</div>
+    </div>
+
+    <div style="position:absolute;left:0;bottom:6mm;right:0">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-bottom:9mm">
+        <div><div class="kicker" style="color:var(--leaf)">Machine Learning</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">Chemistry meets XAI: SVR, SHAP and DFT on one screen</div></div>
+        <div><div class="kicker" style="color:var(--leaf)">Data engineering</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">Amazonas Fire Department: from shift PDFs to a map dashboard</div></div>
+        <div><div class="kicker" style="color:var(--leaf)">Institutional BI</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">A university's internationalization in 6 public dashboards</div></div>
+      </div>
+      <div style="border-top:.4mm solid #2f4a3c;padding-top:4mm;display:flex;justify-content:space-between;align-items:flex-end">
+        <div>
+          <div class="serif" style="font-size:30pt;font-weight:900;color:#fff;line-height:1;letter-spacing:-.01em">William Pinheiro</div>
+          <div class="mono" style="font-size:8pt;color:var(--leaf);letter-spacing:.14em;margin-top:2mm;text-transform:uppercase">PhD in Materials Chemistry · AI-assisted Data Analysis</div>
+        </div>
+        <div class="mono" style="font-size:7pt;color:#9bb3a5;text-align:right;line-height:1.6">github.com/willpine1992<br>williampinheiro1992@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · PROFILE + CONTENTS ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:9mm;height:100%">
+      <div>
+        <div class="kicker">Profile</div>
+        <h1 class="title" style="font-size:38pt;margin:2mm 0 4mm">A chemist who learned to make data speak</h1>
+        <p class="deck" style="font-size:12pt;line-height:1.35;margin-bottom:5mm">From the catalysis lab to a university research office: real projects, real data, published and in use.</p>
+        <p class="dropcap">William Pinheiro holds a PhD in Chemistry from the Federal University of Amazonas (UFAM), including a sandwich doctorate at the University of Pisa, Italy. He spent years generating data at the bench — XRD, FTIR, HPLC, GC-MS, ICP-OES. That routine of spreadsheets, calibration curves and model fitting sparked his interest in the other half of the job: cleaning, modeling, explaining and communicating.</p>
+        <p>He is now a postdoctoral researcher at the Office of Research and Graduate Studies of Amazonas State University (PROPESP/UEA), where he builds the dashboards and data pipelines behind the university's internationalization — from scraping and APIs to semantic matching with language models. At the Amazon Bio-business Center (CBA), he developed semi-automated Power BI reports and Python data flows.</p>
+        <p>His specialty is chemistry; data analysis is the tool. The systems in this issue were built with <b>generative AI assistance</b> (Claude Code) for writing code: the questions, the choice of methods, the validation of results and the chemical interpretation are his own.</p>
+        <p>The common thread is the same as in experimental chemistry: <b>methodological rigor and honesty about limitations</b>. Small datasets are treated as small, correlation is not sold as causation, and every dashboard states what the data <i>cannot</i> support.</p>
+        <div class="pull" style="margin-top:5mm">Every dashboard starts with a decision-maker's question — and is done when that person can answer it on their own.</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div class="stats" style="grid-template-columns:1fr 1fr;background:#fff;padding:5mm;border-radius:2mm">
+          <div class="stat"><div class="n">35</div><div class="l">projects · 17 with interactive dashboards, 10 online</div></div>
+          <div class="stat"><div class="n">58k</div><div class="l">research connections generated with NLP</div></div>
+          <div class="stat"><div class="n">288</div><div class="l">incidents extracted from operational PDFs</div></div>
+          <div class="stat"><div class="n">7</div><div class="l">journal articles · 184 citations</div></div>
+        </div>
+        <div class="kicker" style="margin:7mm 0 2mm">In this issue</div>
+        <div style="border-top:.6mm solid var(--ink)">
+          <div class="toc">
+            <style>.toc div{display:grid;grid-template-columns:9mm 1fr;padding:1.5mm 0;border-bottom:.3mm solid var(--rule)}.toc .p{font-family:Fraunces,serif;font-weight:900;font-size:12pt;color:var(--accent)}.toc b{font-family:Fraunces,serif;font-size:9.8pt;display:block;line-height:1.15}.toc span{font-size:7pt;color:var(--muted)}</style>
+            <div><span class="p">03</span><span><b>AI-powered academic matchmaking</b><span>NLP · Sentence-BERT · OpenAlex</span></span></div>
+            <div><span class="p">05</span><span><b>Chemometrics with Machine Learning</b><span>SVR/XGBoost · SHAP · RSM · DFT</span></span></div>
+            <div><span class="p">07</span><span><b>Fire Department incident dashboard</b><span>PDF ETL · geospatial · data privacy</span></span></div>
+            <div><span class="p">08</span><span><b>UEA in the CAPES Global networks</b><span>Excel + PDF → self-contained HTML</span></span></div>
+            <div><span class="p">09</span><span><b>Internationalization dashboards</b><span>Star schema · daily ETL · React</span></span></div>
+            <div><span class="p">10</span><span><b>Three generations of one algorithm</b><span>GERBRAS → FAAP → Agreements</span></span></div>
+            <div><span class="p">11</span><span><b>Executive reports by code</b><span>HTML → Word/PDF · flow maps</span></span></div>
+            <div><span class="p">12</span><span><b>Data science for science itself</b><span>Bibliometrics · knowledge graph</span></span></div>
+            <div><span class="p">13</span><span><b>Independent projects</b><span>Scraping · scoring · automation</span></span></div>
+            <div><span class="p">14</span><span><b>Systems and skills</b><span>Django · PostgreSQL · Power BI</span></span></div>
+            <div><span class="p">15</span><span><b>Full index: 35 projects</b><span>everything built, by area</span></span></div>
+            <div><span class="p">17</span><span><b>Insert: résumé</b><span>data analysis applied to chemistry</span></span></div>
+          </div>
+        </div>
+        <div style="margin-top:auto;font-size:7.4pt;color:var(--muted);line-height:1.45">
+          <b style="color:var(--ink)">How to read:</b> every image is a screenshot of the real system (interfaces in Portuguese). Public dashboards have QR codes on the back cover — open them and explore.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>William Pinheiro · Data Portfolio</span><span>02</span></div>
+</section>
+
+<!-- ============ 3 · FAAP (opener) ============ -->
+<section class="page dark">
+  <img src="img/faap_globe.jpg" style="position:absolute;top:0;left:0;width:100%;height:140mm;object-fit:cover;object-position:28% 50%">
+  <div style="position:absolute;top:100mm;left:0;right:0;height:40mm;background:linear-gradient(180deg,rgba(13,23,19,0),var(--night))"></div>
+  <div class="pad" style="top:130mm">
+    <div class="kicker" style="color:var(--gold)">Cover story · Applied NLP</div>
+    <h1 class="title" style="font-size:34pt;color:#fff;margin:2mm 0 3mm">The algorithm that finds partners for the Amazon</h1>
+    <p class="deck" style="font-size:11.5pt;color:#c6dacb;margin-bottom:5mm">Turning research lines into vectors to discover, among millions of publications, who in the world studies the same topics as UEA's graduate programs.</p>
+    <div class="cols2" style="color:#dfe8e1;font-size:8.8pt">
+      <p class="dropcap" style="color:#dfe8e1">Before every international mission, UEA's research office faced a hard question: <i>who is worth talking to?</i> The answer came from manual searches, personal contacts and intuition. <b>FAAP — Find a Academic Partner</b> replaced that process with a reproducible pipeline.</p>
+      <p>The starting point is the official research lines of each graduate program. On the other side, the <b>OpenAlex</b> API returns researchers and publications from the target universities. Texts are translated from Portuguese to English, stripped of stopwords and lemmatized with <b>spaCy</b>.</p>
+      <p>The leap in quality came from replacing exact keyword counting with <b>semantic similarity</b>: a <b>Sentence-BERT</b> model (all-MiniLM-L6-v2) embeds each research line and each publication title, and cosine similarity ranks the candidates. Synonyms and equivalent technical terms are now recognized, and batch ranking processes an entire country in one run.</p>
+      <p>The same model classifies UEA's 166 research lines into up to three UN <b>Sustainable Development Goals</b> — making it possible to cross foreign universities and SDGs in a single matrix.</p>
+    </div>
+  </div>
+  <div class="folio"><span>AI-powered academic matchmaking</span><span>03</span></div>
+</section>
+
+<!-- ============ 4 · FAAP (cont.) ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="stats s5" style="grid-template-columns:repeat(5,1fr);border-top:.6mm solid var(--ink);border-bottom:.3mm solid var(--rule);padding:3mm 0 4mm">
+      <div class="stat"><div class="n">29</div><div class="l">graduate programs</div></div>
+      <div class="stat"><div class="n">323</div><div class="l">UEA faculty members</div></div>
+      <div class="stat"><div class="n">384</div><div class="l">foreign institutions</div></div>
+      <div class="stat"><div class="n">58,084</div><div class="l">ranked connections</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">countries, from Ghana to Singapore and the US</div></div>
+    </div>
+
+    <div class="kicker" style="margin:5mm 0 2mm">The pipeline</div>
+    <div class="flow">
+      <div class="s"><b>01 · ACQUISITION</b><span>OpenAlex API with caching and daily quota control; ORCID for real publications</span></div><div class="ar">→</div>
+      <div class="s"><b>02 · STANDARDIZATION</b><span>PT→EN translation, stopwords and lemmatization (spaCy)</span></div><div class="ar">→</div>
+      <div class="s"><b>03 · MATCHING</b><span>Sentence-BERT embeddings + cosine, batch re-ranking per country</span></div><div class="ar">→</div>
+      <div class="s"><b>04 · PUBLISHING</b><span>Static JSON → dashboard on GitHub Pages, no server</span></div>
+    </div>
+
+    <div class="shot" style="margin-top:5mm"><img src="img/faap.jpg"></div>
+    <div class="cap"><b>Main dashboard.</b> Cascading filter program → research line, Sankey of research line × foreign institution, country map and SDG panel. Every faculty member and researcher opens a profile with real publications.</div>
+
+    <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div class="shot"><img src="img/faap_ods.jpg"></div>
+        <div class="cap"><b>2030 Agenda.</b> Research lines classified into SDGs by semantic similarity, plus a university × SDG matrix.</div>
+      </div>
+      <div>
+        <div class="box">
+          <h4>Why it matters</h4>
+          <ul>
+            <li>It underpins the <b>prospecting reports</b> for UEA's international missions (United States and United Kingdom).</li>
+            <li>Generic architecture: adding a country is a configuration entry, not new code.</li>
+            <li>Researcher “seeds” fill OpenAlex gaps without biasing the ranking.</li>
+            <li>The same method was replicated for <b>institutions already under agreement</b>.</li>
+          </ul>
+        </div>
+        <div class="tags" style="margin-top:4mm"><span class="tag">Python</span><span class="tag">Sentence-BERT</span><span class="tag">spaCy</span><span class="tag">OpenAlex API</span><span class="tag">ORCID</span><span class="tag">SQLite</span><span class="tag">D3.js</span><span class="tag">GitHub Pages</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>AI-powered academic matchmaking</span><span>04</span></div>
+</section>
+
+<!-- ============ 5 · VAGEM ML ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Experimental data science</div>
+    <h1 class="title" style="font-size:36pt;margin:2mm 0 3mm">When chemistry calls for machine learning</h1>
+    <p class="deck" style="font-size:11.5pt;margin-bottom:5mm;max-width:160mm">A study on dye removal with Amazonian plant fibers became a modeling lab: explainable ML, response surfaces, nonlinear fitting and quantum chemistry — in a single dashboard.</p>
+    <div style="display:grid;grid-template-columns:1fr 54mm;gap:7mm">
+      <div class="cols2" style="font-size:8.8pt">
+        <p class="dropcap">Palm and pod fibers — untreated, acid-treated or base-treated — were tested as adsorbents for methylene blue dye. The data lived in a lab spreadsheet on Google Drive, so the first task was engineering: an <b>ETL</b> that pulls the latest version through the API, validates the structure of each tab and only then replaces the <b>SQLite</b> database. If the spreadsheet layout changes, the process fails loudly instead of silently writing bad data.</p>
+        <p>Validation exposed formula errors in the original adsorption capacity (Qₑ) column; values were recomputed from the standard equation.</p>
+        <p>On the 49 experimental runs, three algorithms — <b>Random Forest, XGBoost and SVR</b> — were tuned with <code>GridSearchCV</code> and 5-fold cross-validation. SVR performed best on the test set. <b>SHAP</b> values show adsorbent mass as the most influential variable, consistent with the physics of the process.</p>
+        <p>The dashboard also includes a simulator: users move the parameters and a Flask backend returns predictions in real time.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4mm">
+        <div class="stat"><div class="n">0.859</div><div class="l">test R² (SVR, Qₑ) · n test = 13</div></div>
+        <div class="stat"><div class="n">5.09</div><div class="l">test RMSE, in mg/g</div></div>
+        <div class="stat"><div class="n">49</div><div class="l">real runs · 5 process variables</div></div>
+        <div class="box" style="border-color:var(--gold)"><h4 style="color:#a07a10">Method note</h4><p style="margin:0">With 49 points, the test R² is treated as an exploratory estimate — and the dashboard says so up front.</p></div>
+      </div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/v_ml.jpg"></div>
+    <div class="cap"><b>Parity and SHAP.</b> Left, predicted × observed for training and test sets; right, the SHAP beeswarm showing each variable's impact on the prediction.</div>
+  </div>
+  <div class="folio"><span>Chemometrics with Machine Learning</span><span>05</span></div>
+</section>
+
+<!-- ============ 6 · VAGEM RSM / ISO / DFT ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm">
+      <div><div class="shot"><img src="img/v_contour.jpg"></div><div class="cap"><b>Response surface.</b> Quadratic model with terms selected by VIF; R² = 0.959.</div></div>
+      <div><div class="shot"><img src="img/v_pareto.jpg"></div><div class="cap"><b>Pareto of effects.</b> Type II ANOVA (statsmodels), α = 0.05.</div></div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/v_iso.jpg"></div>
+    <div class="cap"><b>Equilibrium isotherms.</b> Langmuir, Freundlich, Temkin and Redlich-Peterson fitted by nonlinear regression, with residuals and χ², ARE, HYBRID and R²<sub>NL</sub> error functions.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:5mm">
+      <div><div class="shot"><img src="img/v_kin.jpg"></div><div class="cap"><b>Kinetics.</b> Pseudo-second order with R²<sub>NL</sub> = 0.995 and residual analysis.</div></div>
+      <div><div class="shot"><img src="img/v_dft.jpg"></div><div class="cap"><b>DFT B3LYP/6-31G*</b> (pyscf + RDKit, structures from PubChem). The HOMO of the alkoxide in the base treatment rises to −0.645 eV — an electronic explanation for the higher adsorption observed.</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 46mm;gap:6mm;margin-top:5mm;align-items:start">
+      <div class="box">
+        <h4>Rigor before R²</h4>
+        <ul>
+          <li><b>OFAT is not DoE.</b> The data vary one factor at a time; RSM was applied retrospectively and the full 21-term model was singular. VIF-based selection kept the 13 terms with real support in the data.</li>
+          <li><b>Linearization misleads.</b> On the same data block, linearized Langmuir gave R² = 0.03; direct nonlinear fitting gave R² = 0.87. The problem was the method, not the data.</li>
+          <li><b>An optimum is a hypothesis.</b> The desirability optimum (differential evolution) is presented as a suggestion to be confirmed in the lab.</li>
+        </ul>
+      </div>
+      <div class="tags"><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">statsmodels</span><span class="tag">SciPy</span><span class="tag">Plotly</span><span class="tag">Flask</span><span class="tag">pyscf</span><span class="tag">RDKit</span><span class="tag">SQLite</span><span class="tag">Google Drive API</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Chemometrics with Machine Learning</span><span>06</span></div>
+</section>
+
+<!-- ============ 7 · CBMAM ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1fr 58mm;gap:7mm;align-items:end">
+      <div>
+        <div class="kicker">Data engineering · Public sector</div>
+        <h1 class="title" style="font-size:34pt;margin:2mm 0 3mm">From shift-report PDFs to an incident map</h1>
+        <p class="deck" style="font-size:11pt">Shift reports from the Amazonas State Fire Department became a dashboard with KPIs, a map and peak-hour patterns.</p>
+      </div>
+      <div class="stats" style="grid-template-columns:1fr 1fr;gap:2.5mm">
+        <div class="stat"><div class="n" style="color:#b3261e">288</div><div class="l">unique incidents</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">46%</div><div class="l">are fires</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">2h42</div><div class="l">median duration</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">29</div><div class="l">vehicles dispatched</div></div>
+      </div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/cbmam.jpg" style="height:150mm;object-fit:cover;object-position:top"></div>
+    <div class="cap"><b>CBMAM incident dashboard.</b> Incident type, battalion and shift are clickable and filter everything; Leaflet map colored by type; incidents per service day and a day × hour heatmap.</div>
+    <div class="cols3" style="margin-top:5mm;font-size:8.5pt">
+      <p class="dropcap">The source was PDFs exported from the dispatch system — one per shift, with summary tables and free-text blocks for each incident. The ETL uses <b>pdftotext</b> and regular expressions to extract status, address, coordinates, dispatched vehicles and outcome.</p>
+      <p>Open incidents reappear in the next shift's report; <b>deduplication by ID</b> prevents double counting. Burned area and liters of water have no dedicated field: they were extracted from the narrative text, with rules to discard implausible values.</p>
+      <p>The narratives contain victims' personal data. Hence <b>privacy by design</b> under Brazil's LGPD: PDFs never enter the repository and no personal data reaches the dashboard. The documentation also lists what the data <i>cannot</i> measure — such as response time — and what to request from the agency to measure it.</p>
+    </div>
+  </div>
+  <div class="folio"><span>Incident dashboard · CBMAM</span><span>07</span></div>
+</section>
+
+<!-- ============ 8 · CAPES GLOBAL ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">BI for academic management</div>
+    <h1 class="title" style="font-size:34pt;margin:2mm 0 3mm">Three networks, fourteen universities, one dashboard</h1>
+    <p class="deck" style="font-size:11pt;margin-bottom:5mm;max-width:165mm">UEA's participation in the CAPES Global program — previously scattered across proposal annexes and spreadsheets — brought together in a single HTML file any manager can open in a browser.</p>
+    <div class="shot"><img src="img/capes.jpg" style="height:142mm;object-fit:cover;object-position:top"></div>
+    <div class="cap"><b>Overview.</b> The Conecta Mundi (UNESP), INTER-NÓS (UFMG) and SustentNET (UNICAMP) networks, with funding planned for UEA and programs per institution; each network has its own tab with a map and a thematic area × university matrix.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm">
+      <div style="font-size:8.8pt">
+        <p class="dropcap">A Python script (<b>build_dashboard.py</b>) reads the macro-enabled workbook with <b>openpyxl</b>, extracts planned scholarship amounts from the budget PDF and cross-references everything with the committee registry in the research office's management system. The output is a single self-contained HTML file, with embedded logos and CSV export.</p>
+        <p>The “Explore programs” tab filters and sorts all 738 links from the annexes, and a committee × annex check automatically flags registry mismatches.</p>
+      </div>
+      <div>
+        <div class="stats" style="grid-template-columns:1fr 1fr 1fr;gap:4mm">
+          <div class="stat"><div class="n">738</div><div class="l">program × network links</div></div>
+          <div class="stat"><div class="n">14</div><div class="l">universities</div></div>
+          <div class="stat"><div class="n">16</div><div class="l">thematic areas</div></div>
+          <div class="stat"><div class="n">20</div><div class="l">UEA graduate programs</div></div>
+          <div class="stat"><div class="n">3</div><div class="l">CAPES Global networks</div></div>
+          <div class="stat"><div class="n">1</div><div class="l">HTML file, no server</div></div>
+        </div>
+        <div class="tags" style="margin-top:5mm"><span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">pdftotext</span><span class="tag">HTML/CSS/JS</span><span class="tag">CSV export</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>UEA in the CAPES Global networks</span><span>08</span></div>
+</section>
+
+<!-- ============ 9 · INTERNATIONALIZATION SUITE ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Institutional portfolio · PROPESP/UEA</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Internationalization, dashboard by dashboard</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">One visual identity, one database and several audiences: managers, program coordinators and international students.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm 6mm">
+      <div><div class="shot"><img src="img/mobilidade.jpg"></div>
+        <div class="cap"><b>Academic mobility.</b> International students hosted: 66 records, 15 countries, 14 programs. Data in a <b>star schema</b> (fact + dimensions) with a data dictionary and DAX measures.</div></div>
+      <div><div class="shot"><img src="img/convenios.jpg"></div>
+        <div class="cap"><b>International agreements.</b> 42 agreements in 24 countries, a validity timeline and a flow globe from Manaus. Fed by a daily Google Drive → SQLite ETL (launchd).</div></div>
+      <div><div class="shot"><img src="img/geral.jpg"></div>
+        <div class="cap"><b>International partnerships.</b> First generation of the matching: 158 researchers, 199 institutions and 15,644 connections in a three-level Sankey.</div></div>
+      <div><div class="shot"><img src="img/gcub.jpg"></div>
+        <div class="cap"><b>GCUB-MOB call.</b> Application review funnel in React + Recharts. The public version uses <b>synthetic data</b> with the real distribution; real data only loads locally.</div></div>
+    </div>
+    <div class="kicker" style="margin:7mm 0 2mm">Shared architecture</div>
+    <div class="flow">
+      <div class="s"><b>SOURCES</b><span>Spreadsheets on Google Drive (agreements, mobility, calls) and system exports</span></div><div class="ar">→</div>
+      <div class="s"><b>DAILY ETL</b><span>Python reads the sheets via API and consolidates fact and dimension tables</span></div><div class="ar">→</div>
+      <div class="s"><b>SQLITE</b><span>Single internationalization database, refreshed automatically once a day via launchd</span></div><div class="ar">→</div>
+      <div class="s"><b>DASHBOARDS</b><span>JSON per dashboard → static HTML/JS; PDF reports generated in the browser</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:6mm;border-top:.6mm solid var(--ink);padding-top:3mm">
+      <div><b class="serif" style="font-size:10.5pt">A single source of truth</b><p style="font-size:7.8pt;margin-top:1mm">Shared spreadsheets on Drive are read through the API and consolidated into a SQLite database refreshed automatically every day.</p></div>
+      <div><b class="serif" style="font-size:10.5pt">Privacy by default</b><p style="font-size:7.8pt;margin-top:1mm">No national IDs, passports or e-mails on dashboards: anonymous keys, abbreviated names and synthetic data wherever it is public.</p></div>
+      <div><b class="serif" style="font-size:10.5pt">Zero infrastructure cost</b><p style="font-size:7.8pt;margin-top:1mm">Static sites on GitHub Pages, with bundled libraries and PDF reports generated by the dashboard itself.</p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Internationalization dashboards</span><span>09</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">An evolving product · PROPESP/UEA</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Three generations of the same algorithm</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Partnership matching was not born finished: it was rewritten with every new management question — from one professor and one country to every program and every agreement.</p>
+    <div class="flow" style="margin-bottom:5mm">
+      <div class="s"><b>V1 · GERBRAS</b><span>Professor × foreign researcher via OpenAlex keywords. One country at a time (Germany).</span></div><div class="ar">→</div>
+      <div class="s"><b>V2 · FAAP</b><span>Official research line × publications, with Sentence-BERT. 10 countries plus SDG classification.</span></div><div class="ar">→</div>
+      <div class="s"><b>V3 · AGREEMENTS</b><span>Same method applied to every institution with an active agreement, Brazilian ones included.</span></div>
+    </div>
+    <div class="shot"><img src="img/gerbas.jpg" style="height:96mm;object-fit:cover;object-position:left top"></div>
+    <div class="cap"><b>GERBRAS — first version.</b> Sankey of research lines × German institutions: 158 researchers, 207 institutions and 1,306 connections, with foreign researchers ranked by number of links.</div>
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:6mm;margin-top:5mm;align-items:start">
+    <div><div class="shot"><img src="img/matchs.jpg"></div>
+    <div class="cap"><b>FAAP Agreements.</b> 19 of the 42 partner institutions match UEA's research lines, totaling 27,304 connections. The indicator is compared directly with the agreements dashboard, showing where an agreement exists on paper but there is no shared research yet.</div></div>
+    <div>
+      <div class="stats" style="grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm">
+        <div class="stat"><div class="n" style="font-size:19pt">1,306</div><div class="l">connections in V1 (1 country)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">58,084</div><div class="l">connections in V2 (10 countries)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">27,304</div><div class="l">connections with partners (V3)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">19/42</div><div class="l">partners with shared research</div></div>
+      </div>
+      <div class="box"><h4>Product lesson</h4><p style="margin:0">The unit of analysis moved from “professor” to “official research line”: results became stable, explainable and aligned with how the university is actually organized.</p></div>
+    </div>
+    </div>
+  </div>
+  <div class="folio"><span>Evolution of the matching</span><span>10</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">From dashboard to executive document</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">When leadership asks for a PDF</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Interactive dashboards are for exploring; meetings with the rector and foreign partners call for a document. The same data becomes executive reports generated by code.</p>
+    <div style="display:grid;grid-template-columns:54mm 54mm 1fr;gap:5mm;align-items:start">
+      <div><div class="shot"><img src="img/rel_eua_capa.jpg"></div><div class="cap"><b>Cover.</b> United States report.</div></div>
+      <div><div class="shot"><img src="img/rel_eua_p2.jpg"></div><div class="cap"><b>Overview.</b> Summary by institution and program.</div></div>
+      <div style="font-size:8.6pt">
+        <p class="dropcap">For each international mission, a script reads the numbers straight from the dashboard's data, builds the report in HTML, generates an editable Word version and exports the PDF with headless Chrome. No number is typed by hand.</p>
+        <p>In the US edition, programs from the UFMG cooperation network appear first for each institution, as requested by management — a business-rule change, not a layout change.</p>
+        <div class="stats" style="grid-template-columns:1fr 1fr;gap:3mm;margin-top:3mm">
+          <div class="stat"><div class="n" style="font-size:19pt">13,445</div><div class="l">connections in the US report</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">8,239</div><div class="l">foreign researchers</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">10</div><div class="l">US institutions</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">3</div><div class="l">missions: US, Italy and UK</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:6mm">
+      <div><div class="shot"><img src="img/mob_flow.jpg"></div><div class="cap"><b>Mobility flow map.</b> Students' origins and destinations, with line width proportional to volume.</div></div>
+      <div><div class="shot"><img src="img/redes.jpg"></div><div class="cap"><b>CAPES Global network panel.</b> Meeting edition, with budget per thematic area and a map of partner universities — plus PDF export.</div></div>
+    </div>
+    <div class="tags" style="margin-top:4mm"><span class="tag">python-docx</span><span class="tag">HTML → PDF</span><span class="tag">headless Chrome</span><span class="tag">reproducible reports</span></div>
+  </div>
+  <div class="folio"><span>Executive reports</span><span>11</span></div>
+</section>
+
+<!-- ============ 10 · BIBLIOMETRICS + SECOND BRAIN ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Data science for science itself</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 5mm">Measuring research and organizing knowledge</h1>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm">
+      <div>
+        <div class="shot"><img src="img/levulinico.jpg" style="height:132mm;object-fit:cover;object-position:center top"></div>
+        <div class="cap"><b>Bibliometrics: levulinic acid in Brazil.</b> Output per year, institutions, compounds, researchers and journals.</div>
+        <h3 class="serif" style="font-size:13pt;margin:4mm 0 2mm">Mapping Brazilian biorefinery research</h3>
+        <p style="font-size:8.5pt">DOIs collected through ScienceDirect advanced search were enriched with <b>OpenAlex</b> and <b>Semantic Scholar</b> metadata (authors, affiliations, citations, abstracts). Regex-based rules grouped papers by chemical derivative and synthesis route, and manual curation kept only the truly relevant ones.</p>
+        <div class="stats" style="grid-template-columns:repeat(4,1fr);gap:2mm;margin-top:3mm">
+          <div class="stat"><div class="n" style="font-size:18pt">56</div><div class="l">curated papers (of 85)</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">197</div><div class="l">researchers</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">32%</div><div class="l">with international collaboration</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">1,937</div><div class="l">total citations</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="shot"><img src="img/secondbrain.jpg" style="height:132mm;object-fit:cover"></div>
+        <div class="cap"><b>Second Brain.</b> Interactive knowledge graph with hundreds of literature notes, colored by topic.</div>
+        <h3 class="serif" style="font-size:13pt;margin:4mm 0 2mm">A home-built “Obsidian”, from scratch</h3>
+        <p style="font-size:8.5pt">A knowledge-management web app: a dependency-free Python server, a REST API over Markdown files, a backlink index, full-text search and a <b>D3.js</b> force graph with topic and tag filters. Google Scholar alerts turn into reading notes automatically, and a read-only copy is published on the web.</p>
+        <div class="tags" style="margin-top:3mm"><span class="tag">OpenAlex</span><span class="tag">Semantic Scholar</span><span class="tag">regex</span><span class="tag">pandas</span><span class="tag">D3.js</span><span class="tag">REST</span><span class="tag">Markdown</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Bibliometrics · Knowledge graph</span><span>12</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Independent projects and automation</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Collect, filter, decide</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Outside institutions, the same toolbox solves everyday problems: scraping, scoring rules and an HTML page that fits on a phone.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm">
+      <div><div class="shot"><img src="img/leilao.jpg" style="height:104mm;object-fit:cover;object-position:left top"></div>
+        <div class="cap"><b>Bank-owned properties in Amazonas.</b> Scraping of the official Caixa sales list, discount over appraised value and a filter for financing eligibility: 132 properties in a sortable table, with a mobile version.</div></div>
+      <div><div class="shot"><img src="img/vagas.jpg" style="height:104mm;object-fit:cover;object-position:left top"></div>
+        <div class="cap"><b>Job radar.</b> Collects public job postings across several cities and applies a weighted term score (title × description) that rates fit with the résumé as high, medium or low.</div></div>
+    </div>
+    <style>.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:6mm}.mini div{background:#fff;border-radius:2mm;padding:4mm;border-top:1mm solid var(--green2)}.mini b{font-family:Fraunces,serif;font-size:10.2pt;display:block;line-height:1.15;margin-bottom:1.2mm}.mini p{font-size:8pt;margin:0;text-align:left}</style>
+    <div class="mini">
+      <div><b>Water Quality Index (WQI) system</b><p>First dashboard: water quality index per river basin and sampling point, with scikit-learn/XGBoost models, Prophet forecasting, Folium maps and PDF reports (Streamlit).</p></div>
+      <div><b>UEA course catalog</b><p>Concurrent scraping of the university's course portal: 900+ undergraduate, specialization and graduate offerings, with caching and counts by level for internationalization demand.</p></div>
+      <div><b>Funding-call monitor</b><p>Routine that searches international calls, checks them against what is already published, flags expired deadlines and generates ready-to-use blocks for the research office website.</p></div>
+      <div><b>Research lines and Lattes</b><p>Canonical base of 166 research lines from 19 programs, linked to faculty Lattes and ORCID IDs — the matching's source of truth.</p></div>
+      <div><b>Social media agent</b><p>Workflow that drafts the post, prepares the image and publishes to Instagram and Facebook via the Graph API, always with manual approval.</p></div>
+      <div><b>Dashboards on the official site</b><p>Embedding of the dashboards in the research office's institutional pages, with corrected embed code.</p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Independent projects</span><span>13</span></div>
+</section>
+
+<!-- ============ 11 · SYSTEMS + SKILLS ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Also in the portfolio</div>
+    <h1 class="title" style="font-size:30pt;margin:2mm 0 5mm">Data inside real-world systems</h1>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm">
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--green)">
+        <div class="kicker" style="color:var(--green)">PROPESP · UEA</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Scholarship and budget manager</h3>
+        <p style="font-size:7.8pt">Django + PostgreSQL rewrite of the scholarship planning system. Imports the official spreadsheet from Google Drive with a preview before writing and reconciles it row by row against the source (191/191). Dashboard with a <b>Sankey</b> of networks → themes → programs, a Gantt of validity periods and a reallocation simulator.</p>
+      </div>
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--gold)">
+        <div class="kicker" style="color:#a07a10">Retail</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Optical store management, from POS to finance</h3>
+        <p style="font-size:7.8pt">Django system with work orders, cash register, store credit, accounts payable and customer follow-up lists. Role-based access: costs and margins visible only to the owner, enforced by <b>automated tests</b>. Two-factor authentication and encrypted backups.</p>
+      </div>
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--accent)">
+        <div class="kicker">CBA</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Project reporting in Power BI</h3>
+        <p style="font-size:7.8pt">At the Amazon Bio-business Center, supported multi-sector project management with <b>semi-automated Power BI reports</b> and Python data flows, reducing manual consolidation work.</p>
+      </div>
+    </div>
+
+    <div class="kicker" style="margin:8mm 0 3mm">Toolbox</div>
+    <style>.tk{display:grid;grid-template-columns:38mm 1fr;border-top:.3mm solid var(--rule);padding:3.1mm 0}.tk b{font-family:Fraunces,serif;font-size:10.5pt}.tk span{font-size:8.3pt;color:var(--ink2)}</style>
+    <div style="border-bottom:.3mm solid var(--rule)">
+      <div class="tk"><b>Languages</b><span>Python · SQL · JavaScript · DAX · HTML/CSS</span></div>
+      <div class="tk"><b>Data &amp; ETL</b><span>pandas · SQLite · PostgreSQL · openpyxl · PDF extraction (pdftotext + regex) · Google Drive API · schema validation · scheduling (launchd/cron)</span></div>
+      <div class="tk"><b>APIs</b><span>OpenAlex · ORCID · Semantic Scholar · PubChem PUG REST · Google Sheets/Drive · Meta Graph API</span></div>
+      <div class="tk"><b>Statistics &amp; ML</b><span>scikit-learn · XGBoost · SVR · Random Forest · GridSearchCV · SHAP · statsmodels (ANOVA, VIF) · SciPy (nonlinear regression, differential evolution) · RSM/DoE</span></div>
+      <div class="tk"><b>NLP</b><span>Sentence-BERT (embeddings, cosine similarity) · spaCy (lemmatization) · semantic classification (SDGs)</span></div>
+      <div class="tk"><b>Visualization</b><span>Power BI · D3.js · Plotly · Leaflet · Recharts · Sankey diagrams, flow globes, heatmaps · light/dark design</span></div>
+      <div class="tk"><b>Engineering</b><span>Git/GitHub · GitHub Pages · Django · Flask · React + Vite · Docker · automated testing (pytest) · AI-assisted development (Claude Code)</span></div>
+      <div class="tk"><b>Scientific domain</b><span>Chemometrics · DFT (pyscf, RDKit) · analytical techniques (HPLC, GC-MS, ICP-OES, XRD, FTIR) · catalysis and biorefining</span></div>
+      <div class="tk"><b>Governance</b><span>Data privacy (LGPD) by default · documented KPIs and limitations · synthetic data for public releases</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Systems · Skills</span><span>14</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Full index</div>
+    <h1 class="title" style="font-size:30pt;margin:2mm 0 2mm">35 projects, 17 dashboards</h1>
+    <p class="deck" style="font-size:10pt;margin-bottom:4mm">Everything built in 2026, grouped by area. ● interactive dashboard · ◆ published online</p>
+    <style>.idx{column-count:2;column-gap:7mm}.idx h4{font-family:'JetBrains Mono',monospace;font-size:6.8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:2.5mm 0 1mm;break-after:avoid}.idx div{display:grid;grid-template-columns:5mm 1fr;padding:1.15mm 0;border-bottom:.25mm solid var(--rule);break-inside:avoid}.idx .k{font-family:Fraunces,serif;font-weight:900;font-size:8.5pt;color:var(--green)}.idx b{font-size:7.9pt;font-weight:600}.idx span.d{display:block;font-size:6.9pt;color:var(--ink2);line-height:1.3}</style>
+    <div class="idx">
+      <h4>Internationalization · PROPESP/UEA</h4>
+      <div><span class="k">1</span><span><b>FAAP — program × university prospecting ●◆</b><span class="d">Sentence-BERT, OpenAlex, SDGs · 58,084 connections</span></span></div>
+      <div><span class="k">2</span><span><b>FAAP Agreements ●</b><span class="d">matching with the 42 partner institutions</span></span></div>
+      <div><span class="k">3</span><span><b>GERBRAS — partnerships v1 ●◆</b><span class="d">professor × researcher by keyword</span></span></div>
+      <div><span class="k">4</span><span><b>International partnerships (general) ●◆</b><span class="d">7 countries, 15,644 connections</span></span></div>
+      <div><span class="k">5</span><span><b>International agreements ●◆</b><span class="d">42 agreements, flow globe, validity periods</span></span></div>
+      <div><span class="k">6</span><span><b>Academic mobility ●◆</b><span class="d">star schema, DAX, flow map</span></span></div>
+      <div><span class="k">7</span><span><b>GCUB-MOB ●◆</b><span class="d">React + Recharts, synthetic public data</span></span></div>
+      <div><span class="k">8</span><span><b>UEA in the CAPES Global networks ●◆</b><span class="d">Excel + PDF → self-contained HTML</span></span></div>
+      <div><span class="k">9</span><span><b>Network panel for meetings ●</b><span class="d">budget per thematic area, PDF export</span></span></div>
+      <div><span class="k">10</span><span><b>Executive prospecting reports</b><span class="d">US, Italy and UK · HTML → DOCX/PDF</span></span></div>
+      <div><span class="k">11</span><span><b>Google Drive → SQLite ETL</b><span class="d">service account, daily refresh (launchd)</span></span></div>
+      <div><span class="k">12</span><span><b>Research lines + Lattes/ORCID base</b><span class="d">166 lines, 19 programs</span></span></div>
+      <div><span class="k">13</span><span><b>UEA course catalog scraping</b><span class="d">900+ offerings, concurrent with cache</span></span></div>
+      <div><span class="k">14</span><span><b>International funding-call monitor</b><span class="d">duplicate and deadline control</span></span></div>
+      <div><span class="k">15</span><span><b>Dashboards embedded in the official site</b><span class="d">institutional page embeds</span></span></div>
+      <div><span class="k">16</span><span><b>Scholarship and budget manager ●</b><span class="d">Django + PostgreSQL, Sankey, Gantt</span></span></div>
+      <h4>Science and research</h4>
+      <div><span class="k">17</span><span><b>Chemometrics (pod/palm fibers) ●◆</b><span class="d">ML/SHAP, RSM, isotherms, DFT</span></span></div>
+      <div><span class="k">18</span><span><b>Water Quality Index system ●</b><span class="d">Streamlit, XGBoost, Prophet, Folium</span></span></div>
+      <div><span class="k">19</span><span><b>Levulinic acid bibliometrics ●</b><span class="d">ScienceDirect + OpenAlex + Semantic Scholar</span></span></div>
+      <div><span class="k">20</span><span><b>Second Brain ●◆</b><span class="d">knowledge app with D3 graph</span></span></div>
+      <div><span class="k">21</span><span><b>Research vault + reading agent</b><span class="d">Scholar alerts → literature notes</span></span></div>
+      <div><span class="k">22</span><span><b>AI automation library</b><span class="d">versioned skills for recurring workflows</span></span></div>
+      <h4>Public sector</h4>
+      <div><span class="k">23</span><span><b>Fire Department incidents ●◆</b><span class="d">PDF ETL, Leaflet map, data privacy</span></span></div>
+      <h4>Business</h4>
+      <div><span class="k">24</span><span><b>Optical store management system ●</b><span class="d">Django, POS, finance, lens catalog</span></span></div>
+      <div><span class="k">25</span><span><b>Social media posting agent</b><span class="d">Graph API, per-post approval</span></span></div>
+      <div><span class="k">26</span><span><b>Google Business Profile audit</b><span class="d">local digital presence analysis</span></span></div>
+      <div><span class="k">27</span><span><b>Digital product launch guide</b><span class="d">market research and web sources</span></span></div>
+      <div><span class="k">28</span><span><b>Power BI reporting · CBA</b><span class="d">multi-sector project management</span></span></div>
+      <h4>Independent</h4>
+      <div><span class="k">29</span><span><b>Bank-owned properties in Amazonas ●</b><span class="d">scraping, discount, financing filter</span></span></div>
+      <div><span class="k">30</span><span><b>Job radar ●</b><span class="d">collection + fit score</span></span></div>
+      <div><span class="k">31</span><span><b>Digital footprint audit</b><span class="d">OSINT on one's own online presence</span></span></div>
+      <div><span class="k">32</span><span><b>Documentary genealogy research</b><span class="d">historical records, evidence grading</span></span></div>
+      <div><span class="k">33</span><span><b>Commemorative brochure (HTML → PDF)</b><span class="d">editorial layout by code</span></span></div>
+      <div><span class="k">34</span><span><b>Generative AI explorations</b><span class="d">3D modeling and model reverse engineering</span></span></div>
+      <div><span class="k">35</span><span><b>This portfolio</b><span class="d">HTML → PDF, PT and EN</span></span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Full index</span><span>15</span></div>
+</section>
+<!-- ============ 12 · BACK COVER ============ -->
+<section class="page dark">
+  <div class="pad">
+    <div class="kicker" style="color:var(--gold)">Back cover</div>
+    <h1 class="title" style="font-size:44pt;color:#fff;margin:2mm 0 4mm">Shall we talk about your data?</h1>
+    <p class="deck" style="font-size:12pt;color:#c6dacb;max-width:150mm;margin-bottom:8mm">Point your camera and explore the live dashboards — the same systems featured in this issue.</p>
+
+    <style>.qrs{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}.qr{background:#f5f2ea;border-radius:2mm;padding:4mm;display:flex;gap:3.5mm;align-items:center}.qr img{width:22mm;height:22mm}.qr b{font-family:Fraunces,serif;font-size:10pt;color:var(--ink);display:block;line-height:1.15}.qr span{font-size:6.8pt;color:var(--muted);display:block;margin-top:1mm;line-height:1.3}</style>
+    <div class="qrs">
+      <div class="qr"><img src="img/qr_faap.svg"><div><b>FAAP · AI matching</b><span>International partnership prospecting</span></div></div>
+      <div class="qr"><img src="img/qr_vagem.svg"><div><b>Chemometrics &amp; ML</b><span>ML/XAI, RSM, isotherms and DFT</span></div></div>
+      <div class="qr"><img src="img/qr_cbmam.svg"><div><b>CBMAM incidents</b><span>PDF ETL and geospatial dashboard</span></div></div>
+      <div class="qr"><img src="img/qr_capes.svg"><div><b>CAPES Global</b><span>UEA in the 3 networks</span></div></div>
+      <div class="qr"><img src="img/qr_github.svg"><div><b>GitHub</b><span>github.com/willpine1992 — code and other dashboards</span></div></div>
+      <div class="qr"><img src="img/qr_lattes.svg"><div><b>Lattes CV</b><span>Brazil's official academic CV: education, publications, projects</span></div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:10mm;margin-top:10mm;border-top:.4mm solid #2f4a3c;padding-top:6mm;color:#dfe8e1">
+      <div>
+        <div class="kicker" style="color:var(--leaf);margin-bottom:2mm">Education</div>
+        <p style="font-size:8.6pt;text-align:left"><b>PhD in Chemistry — Materials and Interfaces</b> — Federal University of Amazonas (UFAM), 2021–2026, with a CAPES sandwich doctorate at the University of Pisa, Italy<br>
+        <b>MSc in Biotechnology and Amazonian Natural Resources</b> — Amazonas State University (UEA), 2019–2021<br>
+        <b>BSc in Chemistry</b> — UEA, 2015–2018<br>
+        <b>Chemistry Technician</b> — IFAM · <b>Associate degree in Oil and Gas</b> — UNINORTE</p>
+        <div class="kicker" style="color:var(--leaf);margin:4mm 0 2mm">Publications</div>
+        <p style="font-size:8.6pt;text-align:left">7 journal articles (Bioresource Technology, Renewable Energy, Environmental Science and Pollution Research, among others) · 2 book chapters (Elsevier, Wiley) · 184 citations on Google Scholar</p>
+      </div>
+      <div>
+        <div class="kicker" style="color:var(--leaf);margin-bottom:2mm">Contact</div>
+        <div class="serif" style="font-size:22pt;font-weight:900;color:#fff;line-height:1">William Pinheiro</div>
+        <div class="mono" style="font-size:7.5pt;color:var(--leaf);margin:1.5mm 0 4mm;letter-spacing:.1em">CHEMIST · AI-ASSISTED DATA ANALYSIS</div>
+        <p style="font-size:8.8pt;text-align:left;line-height:1.7">williampinheiro1992@gmail.com<br>Manaus, Brazil<br>ORCID 0000-0003-0758-8292<br>lattes.cnpq.br/9111919283952655</p>
+        <div class="kicker" style="color:var(--leaf);margin:4mm 0 2mm">Languages</div>
+        <p style="font-size:8.6pt;text-align:left">Portuguese (native) · English B1 · Italian A2 · French A2</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Data Portfolio · Issue 01 · 2026</span><span>16</span></div>
+</section>
+
+<style>
+.cv{background:#fff}
+.cv .pad{inset:13mm 15mm 14mm 15mm}
+.cv h2{font-family:'JetBrains Mono',monospace;font-size:7.6pt;letter-spacing:.16em;text-transform:uppercase;color:var(--green);border-bottom:.4mm solid var(--green);padding-bottom:1mm;margin:4.2mm 0 2.2mm}
+.cv p,.cv li{font-size:8.5pt;line-height:1.42;text-align:left}
+.cv ul{padding-left:4mm;margin:1mm 0 0}.cv li{margin-bottom:.9mm}
+.cv .job{margin-bottom:2.8mm}
+.cv .jh{display:flex;justify-content:space-between;align-items:baseline}
+.cv .jh b{font-size:9.2pt}.cv .jh span{font-family:'JetBrains Mono',monospace;font-size:7pt;color:var(--muted)}
+.cv .org{font-size:8pt;color:var(--ink2);font-style:italic}
+.cv .sk{display:grid;grid-template-columns:30mm 1fr;gap:.6mm 3mm;font-size:8.3pt}
+.cv .sk b{font-weight:600}
+</style>
+<section class="page cv">
+  <div class="pad">
+    <div class="kicker">Insert · Résumé</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:2mm">
+      <div>
+        <div class="serif" style="font-size:28pt;font-weight:900;line-height:1">William Pinheiro</div>
+        <div style="font-size:10.5pt;font-weight:600;color:var(--green);margin-top:1.5mm">PhD in Materials Chemistry · AI-assisted Data Analysis</div>
+      </div>
+      <div class="mono" style="font-size:7.2pt;text-align:right;line-height:1.6;color:var(--ink2)">Manaus, Brazil<br>williampinheiro1992@gmail.com<br>github.com/willpine1992<br>orcid.org/0000-0003-0758-8292</div>
+    </div>
+
+    <h2>Summary</h2>
+    <p>Chemist with a PhD in Materials and Interfaces Chemistry (UFAM, with a sandwich period at the University of Pisa), experienced in heterogeneous catalysis, biomass and analytical techniques. My specialty is chemistry; I do data analysis using generative AI tools to help write code — I define the questions, choose the methods, validate the results and provide the chemical interpretation. I apply this to chemometrics and explainable machine learning, and to data dashboards for university management (17 dashboards built, 10 published online).</p>
+
+    <h2>Objective</h2>
+    <p>To work in <b>data analysis applied to chemistry</b> — R&amp;D, laboratories, quality control, materials, bioeconomy and the chemical industry — combining domain expertise with statistical modeling, machine learning and visualization.</p>
+
+    <h2>Skills</h2>
+    <div class="sk">
+      <b>Chemistry (specialty)</b><span>Materials and heterogeneous catalysis, biomass and biorefining, adsorption; XRD, XRF, FTIR, SEM, TGA, HPLC, GC-MS, ICP-OES; DFT (pyscf)</span>
+      <b>Chemometrics</b><span>DoE/RSM, ANOVA, VIF, nonlinear regression (isotherms and kinetics), error functions, explainable ML (SHAP)</span>
+      <b>Analytics &amp; BI</b><span>Power BI (star schema, DAX), KPI design, interactive dashboards, automated executive reporting</span>
+      <b>Programming</b><span>Python (pandas, NumPy, SciPy), SQL (SQLite, PostgreSQL), JavaScript (D3.js, Plotly, Leaflet), Git</span>
+      <b>Data &amp; ETL</b><span>REST APIs, web scraping, regex-based PDF extraction, Google Drive/Sheets API, schema validation, scheduled jobs</span>
+      <b>Machine learning</b><span>scikit-learn, XGBoost, SVR, Random Forest, cross-validation, GridSearchCV</span>
+      <b>NLP</b><span>Sentence-BERT (embeddings, cosine similarity), spaCy, semantic classification</span>
+      <b>Generative AI</b><span>AI-assisted development (Claude Code) with critical review, testing and verification of results</span>
+    </div>
+
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="jh"><b>Postdoctoral Researcher — Data &amp; Internationalization</b><span>2026 – present</span></div>
+      <div class="org">Office of Research and Graduate Studies (PROPESP) · Amazonas State University (UEA)</div>
+      <ul>
+        <li>Built FAAP, a partnership-matching system using Sentence-BERT and OpenAlex: 29 graduate programs, 323 faculty, 384 foreign institutions and 58,084 ranked connections.</li>
+        <li>Built and maintains 10 public dashboards (agreements, mobility, funding calls, CAPES Global networks) on a SQLite database fed by a daily Google Drive ETL.</li>
+        <li>Automated executive reports for international missions (US, Italy, UK): dashboard data → HTML → Word/PDF, with no manual data entry.</li>
+        <li>Rewrote the scholarship planning system in Django + PostgreSQL, with imports reconciled row by row against the official spreadsheet (191/191).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Research Fellow — Project Management &amp; Reporting</b><span>2025 – 2026</span></div>
+      <div class="org">Amazon Bio-business Center (CBA)</div>
+      <ul>
+        <li>Developed semi-automated Power BI reports for multi-sector project management and Python data flows for consolidation.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>PhD Candidate in Materials Chemistry — Analytical Center</b><span>2021 – 2025</span></div>
+      <div class="org">Federal University of Amazonas (UFAM) · sandwich doctorate at the University of Pisa, Italy</div>
+      <ul>
+        <li>Developed sulfated kaolin and niobium-based heterogeneous catalysts to convert Amazonian biomass waste into value-added products.</li>
+        <li>Characterized materials and quantified products by XRD, XRF, FTIR, SEM, TGA, HPLC and GC-MS, processing the data with chemometrics.</li>
+        <li>Co-author of 7 international journal articles (184 citations) and 2 book chapters (Elsevier, Wiley).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Sales Consultant — health insurance</b><span>2021 – 2022</span></div>
+      <ul><li>Managed sales funnel and lead portfolio in a CRM; lead generation through paid social media.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Petrochemical Process Operator</b><span>2012 – 2015</span></div>
+      <div class="org">Videolar S/A · polystyrene production</div>
+    </div>
+  </div>
+</section>
+
+<section class="page cv">
+  <div class="pad">
+    <h2 style="margin-top:0">Selected projects</h2>
+    <div class="job">
+      <div class="jh"><b>Incident Dashboard — Amazonas State Fire Department</b><span>Python · regex · Leaflet</span></div>
+      <ul><li>ETL of shift-report PDFs with ID-based deduplication and metric extraction from free text; 288 incidents, documented KPIs and no personal data exposed.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Bioadsorption chemometrics with explainable ML</b><span>scikit-learn · SHAP · statsmodels</span></div>
+      <ul><li>ETL with lab-spreadsheet validation, RF/XGBoost/SVR comparison (test R² 0.859), ANOVA and RSM with VIF-based selection, nonlinear isotherm fitting and DFT calculations.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>UEA in the CAPES Global networks</b><span>openpyxl · pdftotext</span></div>
+      <ul><li>Consolidated a macro-enabled workbook and a budget PDF into a self-contained HTML dashboard: 738 links, 14 universities and automatic mismatch checks.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Bibliometrics and scraping</b><span>OpenAlex · Semantic Scholar</span></div>
+      <ul><li>Map of Brazilian levulinic acid research (56 curated papers, 1,937 citations); scraping of 900+ university courses; bank-owned property monitor with financing filter.</li></ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="job"><div class="jh"><b>PhD in Chemistry — Materials and Interfaces</b><span>2021 – 2026</span></div><div class="org">Federal University of Amazonas (UFAM) · CAPES sandwich doctorate at the University of Pisa (2024–2025) · thesis: sulfated kaolin and niobium heterogeneous catalysts for waste valorization</div></div>
+    <div class="job"><div class="jh"><b>MSc in Biotechnology and Amazonian Natural Resources</b><span>2019 – 2021</span></div><div class="org">Amazonas State University (UEA)</div></div>
+    <div class="job"><div class="jh"><b>BSc in Chemistry</b><span>2015 – 2018</span></div><div class="org">Amazonas State University (UEA)</div></div>
+    <div class="job"><div class="jh"><b>Chemistry Technician · Associate degree in Oil and Gas</b><span>2013 – 2015 · 2010 – 2012</span></div><div class="org">IFAM · UNINORTE</div></div>
+
+    <h2>Languages</h2>
+    <p>Portuguese (native) · English B1 · Italian A2 · French A2</p>
+
+    <h2>Strengths</h2>
+    <ul>
+      <li>A chemist first: understands where lab data come from, their errors and what they mean chemically.</li>
+      <li>End-to-end delivery: from raw source to published dashboard, with documentation and reproducibility.</li>
+      <li>Transparent about AI use: code is written with generative AI assistance; methods, validation and interpretation are my own responsibility.</li>
+    </ul>
+
+    <div style="position:absolute;left:0;right:0;bottom:0;border-top:.3mm solid var(--rule);padding-top:3mm;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6.8pt;color:var(--muted)">
+      <span>Full portfolio and live dashboards: github.com/willpine1992</span><span>Résumé · 2/2</span>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<main class="lang-pt" lang="pt-BR">
+
+
+<!-- ============ 1 · CAPA ============ -->
+<section class="page dark" style="background:#0a100c">
+  <img src="img/cover_globe.jpg" style="position:absolute;left:-12mm;top:66mm;width:235mm;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 62%,transparent 100%)">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0a100c 0%,rgba(10,16,12,0) 30%,rgba(10,16,12,0) 60%,#0a100c 92%)"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.2em;color:var(--leaf);text-transform:uppercase">
+      <span>Edição nº 01</span><span>Portfólio de Dados · Manaus · Outubro 2026</span>
+    </div>
+    <h1 class="title" style="font-size:96pt;color:#f5f2ea;margin-top:5mm;letter-spacing:-.04em">Dados<span style="color:var(--accent)">.</span></h1>
+    <div style="font-family:Fraunces,serif;font-size:17pt;font-style:italic;color:#cfe3d4;margin-top:-1mm">da bancada de química ao algoritmo</div>
+
+    <div style="position:absolute;right:0;top:14mm;width:60mm;text-align:right">
+      <div class="kicker" style="color:var(--gold)">Matéria de capa</div>
+      <div class="serif" style="font-size:16pt;font-weight:700;line-height:1.1;color:#fff;margin-top:1.5mm">O algoritmo que conecta a Amazônia a 384 universidades do mundo</div>
+      <div style="font-size:8pt;color:#b9cdbf;margin-top:2mm">Sentence-BERT + OpenAlex em 58.084 conexões de pesquisa</div>
+    </div>
+
+    <div style="position:absolute;left:0;bottom:6mm;right:0">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-bottom:9mm">
+        <div><div class="kicker" style="color:var(--leaf)">Machine Learning</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">Química encontra XAI: SVR, SHAP e DFT na mesma tela</div></div>
+        <div><div class="kicker" style="color:var(--leaf)">Engenharia de dados</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">Bombeiros do AM: de PDFs de plantão a um painel com mapa</div></div>
+        <div><div class="kicker" style="color:var(--leaf)">BI institucional</div><div class="serif" style="font-size:11pt;color:#fff;line-height:1.15;margin-top:1mm">Internacionalização da UEA em 6 painéis públicos</div></div>
+      </div>
+      <div style="border-top:.4mm solid #2f4a3c;padding-top:4mm;display:flex;justify-content:space-between;align-items:flex-end">
+        <div>
+          <div class="serif" style="font-size:30pt;font-weight:900;color:#fff;line-height:1;letter-spacing:-.01em">William Pinheiro</div>
+          <div class="mono" style="font-size:8pt;color:var(--leaf);letter-spacing:.14em;margin-top:2mm;text-transform:uppercase">Doutor em Química de Materiais · Análise de Dados com IA</div>
+        </div>
+        <div class="mono" style="font-size:7pt;color:#9bb3a5;text-align:right;line-height:1.6">github.com/willpine1992<br>williampinheiro1992@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · PERFIL + SUMÁRIO ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:9mm;height:100%">
+      <div>
+        <div class="kicker">Perfil</div>
+        <h1 class="title" style="font-size:38pt;margin:2mm 0 4mm">Um químico que aprendeu a fazer os dados falarem</h1>
+        <p class="deck" style="font-size:12pt;line-height:1.35;margin-bottom:5mm">Do laboratório de catálise à pró-reitoria de pesquisa: projetos reais, com dados reais, publicados e em uso.</p>
+        <p class="dropcap">William Pinheiro é doutor em Química pela UFAM, com doutorado-sanduíche na Università di Pisa (Itália), e passou anos produzindo dados na bancada — DRX, FTIR, HPLC, GC-MS, ICP-OES. Foi dessa rotina, cheia de planilhas, curvas de calibração e ajustes de modelo, que nasceu o interesse em fazer a outra metade do trabalho: limpar, modelar, explicar e comunicar.</p>
+        <p>Hoje atua como pós-doutor na Pró-Reitoria de Pesquisa e Pós-Graduação da Universidade do Estado do Amazonas (PROPESP/UEA), onde constrói os painéis e os pipelines de dados da internacionalização acadêmica — de raspagem e APIs a matching semântico com modelos de linguagem. No Centro de Bionegócios da Amazônia (CBA), desenvolveu relatórios semiautomatizados em Power BI e fluxos de dados em Python.</p>
+        <p>Sua especialidade é a Química; a análise de dados é a ferramenta. Os sistemas desta edição foram desenvolvidos com <b>apoio de IA generativa</b> (Claude Code) para escrever código: as perguntas, a escolha dos métodos, a validação dos resultados e a interpretação química são dele.</p>
+        <p>O fio condutor é o mesmo da química experimental: <b>rigor de método e honestidade sobre os limites</b>. Datasets pequenos são tratados como pequenos, correlações não viram causalidade e cada painel diz o que os dados <i>não</i> permitem afirmar.</p>
+        <div class="pull" style="margin-top:5mm">Todo painel começa com uma pergunta de quem decide — e termina quando essa pessoa consegue responder sozinha.</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div class="stats" style="grid-template-columns:1fr 1fr;background:#fff;padding:5mm;border-radius:2mm">
+          <div class="stat"><div class="n">35</div><div class="l">projetos · 17 com painel interativo, 10 na web</div></div>
+          <div class="stat"><div class="n">58 mil</div><div class="l">conexões de pesquisa geradas por NLP</div></div>
+          <div class="stat"><div class="n">288</div><div class="l">ocorrências extraídas de PDFs operacionais</div></div>
+          <div class="stat"><div class="n">7</div><div class="l">artigos em periódicos · 184 citações</div></div>
+        </div>
+        <div class="kicker" style="margin:7mm 0 2mm">Nesta edição</div>
+        <div style="border-top:.6mm solid var(--ink)">
+          <div class="toc">
+            <style>.toc div{display:grid;grid-template-columns:9mm 1fr;padding:1.5mm 0;border-bottom:.3mm solid var(--rule)}.toc .p{font-family:Fraunces,serif;font-weight:900;font-size:12pt;color:var(--accent)}.toc b{font-family:Fraunces,serif;font-size:9.8pt;display:block;line-height:1.15}.toc span{font-size:7pt;color:var(--muted)}</style>
+            <div><span class="p">03</span><span><b>Matchmaking acadêmico com IA</b><span>NLP · Sentence-BERT · OpenAlex</span></span></div>
+            <div><span class="p">05</span><span><b>Quimiometria com Machine Learning</b><span>SVR/XGBoost · SHAP · RSM · DFT</span></span></div>
+            <div><span class="p">07</span><span><b>Painel de Ocorrências dos Bombeiros</b><span>ETL de PDF · geoespacial · LGPD</span></span></div>
+            <div><span class="p">08</span><span><b>A UEA nas redes CAPES Global</b><span>Excel + PDF → HTML autocontido</span></span></div>
+            <div><span class="p">09</span><span><b>Internacionalização em painéis</b><span>Modelo estrela · ETL diário · React</span></span></div>
+            <div><span class="p">10</span><span><b>Três gerações do mesmo algoritmo</b><span>GERBRAS → FAAP → Convênios</span></span></div>
+            <div><span class="p">11</span><span><b>Relatórios executivos por código</b><span>HTML → Word/PDF · mapas de fluxo</span></span></div>
+            <div><span class="p">12</span><span><b>Ciência de dados para a própria ciência</b><span>Bibliometria · grafo de conhecimento</span></span></div>
+            <div><span class="p">13</span><span><b>Projetos independentes</b><span>Raspagem · scores · automações</span></span></div>
+            <div><span class="p">14</span><span><b>Sistemas e competências</b><span>Django · PostgreSQL · Power BI</span></span></div>
+            <div><span class="p">15</span><span><b>Índice completo: 35 projetos</b><span>tudo o que foi construído, por área</span></span></div>
+            <div><span class="p">17</span><span><b>Encarte: currículo</b><span>análise de dados aplicada à química</span></span></div>
+          </div>
+        </div>
+        <div style="margin-top:auto;font-size:7.4pt;color:var(--muted);line-height:1.45">
+          <b style="color:var(--ink)">Como ler:</b> todas as imagens são capturas dos sistemas reais. Os painéis públicos têm QR code na contracapa — vale abrir e explorar.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>William Pinheiro · Portfólio de Dados</span><span>02</span></div>
+</section>
+
+<!-- ============ 3 · FAAP (abertura) ============ -->
+<section class="page dark">
+  <img src="img/faap_globe.jpg" style="position:absolute;top:0;left:0;width:100%;height:140mm;object-fit:cover;object-position:28% 50%">
+  <div style="position:absolute;top:100mm;left:0;right:0;height:40mm;background:linear-gradient(180deg,rgba(13,23,19,0),var(--night))"></div>
+  <div class="pad" style="top:130mm">
+    <div class="kicker" style="color:var(--gold)">Matéria de capa · NLP aplicado</div>
+    <h1 class="title" style="font-size:34pt;color:#fff;margin:2mm 0 3mm">O algoritmo que encontra parceiros para a Amazônia</h1>
+    <p class="deck" style="font-size:11.5pt;color:#c6dacb;margin-bottom:5mm">Como transformar linhas de pesquisa em vetores e descobrir, entre milhões de publicações, quem no mundo estuda o mesmo que os programas da UEA.</p>
+    <div class="cols2" style="color:#dfe8e1;font-size:8.8pt">
+      <p class="dropcap" style="color:#dfe8e1">A Pró-Reitoria de Pesquisa da UEA precisava responder a uma pergunta difícil antes de cada missão internacional: <i>com quem vale a pena conversar?</i> A resposta vinha de buscas manuais, contatos pessoais e intuição. O <b>FAAP — Find a Academic Partner</b> substituiu esse processo por um pipeline reprodutível.</p>
+      <p>O ponto de partida são as linhas de pesquisa oficiais de cada Programa de Pós-Graduação. Do outro lado, a API do <b>OpenAlex</b> devolve pesquisadores e publicações das universidades-alvo. Os textos passam por tradução PT→EN, remoção de stopwords e lematização com <b>spaCy</b>.</p>
+      <p>O salto de qualidade veio ao trocar a contagem de palavras-chave idênticas por <b>similaridade semântica</b>: um modelo <b>Sentence-BERT</b> (all-MiniLM-L6-v2) converte linha de pesquisa e título de cada publicação em embeddings, e a similaridade de cosseno ranqueia os candidatos. Sinônimos e termos técnicos equivalentes passam a ser reconhecidos, e o ranking em lote roda um país inteiro de uma vez.</p>
+      <p>O mesmo modelo classifica as 166 linhas de pesquisa da UEA em até três <b>Objetivos de Desenvolvimento Sustentável</b> da ONU — o que permite cruzar universidades estrangeiras e ODS num único quadro.</p>
+    </div>
+  </div>
+  <div class="folio"><span>Matchmaking acadêmico com IA</span><span>03</span></div>
+</section>
+
+<!-- ============ 4 · FAAP (continuação) ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="stats s5" style="grid-template-columns:repeat(5,1fr);border-top:.6mm solid var(--ink);border-bottom:.3mm solid var(--rule);padding:3mm 0 4mm">
+      <div class="stat"><div class="n">29</div><div class="l">programas de pós-graduação</div></div>
+      <div class="stat"><div class="n">323</div><div class="l">docentes da UEA</div></div>
+      <div class="stat"><div class="n">384</div><div class="l">instituições estrangeiras</div></div>
+      <div class="stat"><div class="n">58.084</div><div class="l">conexões ranqueadas</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">países, de Gana a Singapura e EUA</div></div>
+    </div>
+
+    <div class="kicker" style="margin:5mm 0 2mm">O pipeline</div>
+    <div class="flow">
+      <div class="s"><b>01 · AQUISIÇÃO</b><span>OpenAlex API com cache e controle de cota diária; ORCID para publicações reais</span></div><div class="ar">→</div>
+      <div class="s"><b>02 · PADRONIZAÇÃO</b><span>Tradução PT→EN, stopwords e lematização (spaCy)</span></div><div class="ar">→</div>
+      <div class="s"><b>03 · MATCHING</b><span>Embeddings Sentence-BERT + cosseno, rerank em lote por país</span></div><div class="ar">→</div>
+      <div class="s"><b>04 · PUBLICAÇÃO</b><span>JSON estático → painel no GitHub Pages, sem servidor</span></div>
+    </div>
+
+    <div class="shot" style="margin-top:5mm"><img src="img/faap.jpg"></div>
+    <div class="cap"><b>Painel principal.</b> Filtro em cascata PPG → linha de pesquisa, Sankey linha × instituição estrangeira, mapa do país e quadro de ODS. Cada docente e pesquisador abre um perfil com publicações reais.</div>
+
+    <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div class="shot"><img src="img/faap_ods.jpg"></div>
+        <div class="cap"><b>Agenda 2030.</b> Linhas de pesquisa classificadas em ODS por similaridade semântica e matriz universidade × ODS.</div>
+      </div>
+      <div>
+        <div class="box">
+          <h4>Por que importa</h4>
+          <ul>
+            <li>É a base dos <b>relatórios de prospecção</b> das missões internacionais da UEA (EUA e Reino Unido).</li>
+            <li>Arquitetura genérica: adicionar um país é uma entrada de configuração, não código novo.</li>
+            <li>“Sementes” de pesquisadores corrigem lacunas do OpenAlex sem enviesar o ranking.</li>
+            <li>A mesma metodologia foi replicada para as <b>instituições já conveniadas</b>.</li>
+          </ul>
+        </div>
+        <div class="tags" style="margin-top:4mm"><span class="tag">Python</span><span class="tag">Sentence-BERT</span><span class="tag">spaCy</span><span class="tag">OpenAlex API</span><span class="tag">ORCID</span><span class="tag">SQLite</span><span class="tag">D3.js</span><span class="tag">GitHub Pages</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Matchmaking acadêmico com IA</span><span>04</span></div>
+</section>
+
+<!-- ============ 5 · VAGEM ML ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Ciência de dados experimental</div>
+    <h1 class="title" style="font-size:36pt;margin:2mm 0 3mm">Quando a química pede machine learning</h1>
+    <p class="deck" style="font-size:11.5pt;margin-bottom:5mm;max-width:160mm">Um estudo de remoção de corante por fibras vegetais da Amazônia virou um laboratório de modelagem: ML explicável, superfície de resposta, ajuste não linear e química quântica — em um só painel.</p>
+    <div style="display:grid;grid-template-columns:1fr 54mm;gap:7mm">
+      <div class="cols2" style="font-size:8.8pt">
+        <p class="dropcap">Fibras de palma e de vagem, tratadas com ácido, base ou em estado natural, foram testadas como adsorventes do corante azul de metileno. Os dados nasciam numa planilha de laboratório no Google Drive — e o primeiro trabalho foi de engenharia: um <b>ETL</b> que baixa a versão mais recente pela API, valida a estrutura de cada aba e só então substitui o banco <b>SQLite</b>. Se a planilha mudar de formato, o processo falha alto em vez de gravar dados errados.</p>
+        <p>A validação revelou erros de fórmula na capacidade de adsorção (Qₑ) da planilha original; os valores foram recalculados a partir da equação padrão.</p>
+        <p>Sobre as 49 corridas experimentais, três algoritmos — <b>Random Forest, XGBoost e SVR</b> — foram ajustados com <code>GridSearchCV</code> e validação cruzada k=5. O SVR teve o melhor desempenho em teste. Os valores <b>SHAP</b> mostram que a massa de adsorvente é a variável mais influente, coerente com a física do processo.</p>
+        <p>O painel inclui ainda um simulador: o usuário move os parâmetros e um backend Flask devolve a predição em tempo real.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4mm">
+        <div class="stat"><div class="n">0,859</div><div class="l">R² de teste (SVR, Qₑ) · n teste = 13</div></div>
+        <div class="stat"><div class="n">5,09</div><div class="l">RMSE de teste, em mg/g</div></div>
+        <div class="stat"><div class="n">49</div><div class="l">corridas reais · 5 variáveis de processo</div></div>
+        <div class="box" style="border-color:var(--gold)"><h4 style="color:#a07a10">Nota de método</h4><p style="margin:0">Com 49 pontos, o R² de teste é tratado como estimativa exploratória — e o painel diz isso em destaque.</p></div>
+      </div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/v_ml.jpg"></div>
+    <div class="cap"><b>Paridade e SHAP.</b> À esquerda, previsto × observado no treino e no teste; à direita, o beeswarm SHAP com o impacto de cada variável na predição.</div>
+  </div>
+  <div class="folio"><span>Quimiometria com Machine Learning</span><span>05</span></div>
+</section>
+
+<!-- ============ 6 · VAGEM RSM / ISO / DFT ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm">
+      <div><div class="shot"><img src="img/v_contour.jpg"></div><div class="cap"><b>Superfície de resposta.</b> Modelo quadrático com termos escolhidos por VIF; R² = 0,959.</div></div>
+      <div><div class="shot"><img src="img/v_pareto.jpg"></div><div class="cap"><b>Pareto dos efeitos.</b> ANOVA tipo II (statsmodels), α = 0,05.</div></div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/v_iso.jpg"></div>
+    <div class="cap"><b>Isotermas de equilíbrio.</b> Langmuir, Freundlich, Temkin e Redlich-Peterson ajustados por regressão não linear, com resíduos e funções de erro χ², ARE, HYBRID e R²<sub>NL</sub>.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:5mm">
+      <div><div class="shot"><img src="img/v_kin.jpg"></div><div class="cap"><b>Cinética.</b> Pseudo-2ª ordem com R²<sub>NL</sub> = 0,995 e análise de resíduos.</div></div>
+      <div><div class="shot"><img src="img/v_dft.jpg"></div><div class="cap"><b>DFT B3LYP/6-31G*</b> (pyscf + RDKit, estruturas via PubChem). O HOMO do alcóxido do tratamento básico sobe para −0,645 eV — uma explicação eletrônica para a maior adsorção observada.</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 46mm;gap:6mm;margin-top:5mm;align-items:start">
+      <div class="box">
+        <h4>Rigor antes do R²</h4>
+        <ul>
+          <li><b>OFAT não é DoE.</b> Os dados variam um fator por vez; o RSM foi aplicado em retrospecto e o modelo completo de 21 termos era singular. A seleção por VIF manteve 13 termos com suporte real nos dados.</li>
+          <li><b>A linearização engana.</b> No mesmo bloco de dados, Langmuir linearizado deu R² = 0,03; o ajuste não linear direto, R² = 0,87. O problema era o método, não o dado.</li>
+          <li><b>Ótimo é hipótese.</b> O ponto da função desirability (evolução diferencial) aparece como sugestão para confirmar em laboratório.</li>
+        </ul>
+      </div>
+      <div class="tags"><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">statsmodels</span><span class="tag">SciPy</span><span class="tag">Plotly</span><span class="tag">Flask</span><span class="tag">pyscf</span><span class="tag">RDKit</span><span class="tag">SQLite</span><span class="tag">Google Drive API</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Quimiometria com Machine Learning</span><span>06</span></div>
+</section>
+
+<!-- ============ 7 · CBMAM ============ -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1fr 58mm;gap:7mm;align-items:end">
+      <div>
+        <div class="kicker">Engenharia de dados · Setor público</div>
+        <h1 class="title" style="font-size:34pt;margin:2mm 0 3mm">Do PDF de plantão ao mapa de ocorrências</h1>
+        <p class="deck" style="font-size:11pt">Relatórios de turno do Corpo de Bombeiros Militar do Amazonas viraram um painel com KPIs, mapa e horários de pico.</p>
+      </div>
+      <div class="stats" style="grid-template-columns:1fr 1fr;gap:2.5mm">
+        <div class="stat"><div class="n" style="color:#b3261e">288</div><div class="l">ocorrências únicas</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">46%</div><div class="l">são incêndios</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">2h42</div><div class="l">duração mediana</div></div>
+        <div class="stat"><div class="n" style="color:#b3261e">29</div><div class="l">viaturas acionadas</div></div>
+      </div>
+    </div>
+    <div class="shot" style="margin-top:5mm"><img src="img/cbmam.jpg" style="height:150mm;object-fit:cover;object-position:top"></div>
+    <div class="cap"><b>Painel de Ocorrências CBMAM.</b> Natureza, grupamento e turno são clicáveis e filtram tudo; mapa Leaflet colorido por natureza; ocorrências por dia de serviço e mapa de calor dia × hora.</div>
+    <div class="cols3" style="margin-top:5mm;font-size:8.5pt">
+      <p class="dropcap">A fonte eram PDFs exportados do sistema de despacho — um por turno, com tabelas-resumo e blocos de texto livre por ocorrência. O ETL usa <b>pdftotext</b> e expressões regulares para extrair situação, endereço, coordenadas, viaturas empenhadas e desfecho.</p>
+      <p>Ocorrências ainda abertas reaparecem no turno seguinte; a <b>deduplicação por ID</b> evita contagem dupla. Área queimada e litros de água não têm campo próprio: foram extraídos do texto dos relatos, com regras para descartar valores implausíveis.</p>
+      <p>Os relatos contêm dados pessoais de vítimas. Por isso, <b>LGPD by design</b>: PDFs nunca entram no repositório e nenhum dado pessoal chega ao painel. A documentação lista também o que os dados <i>não</i> permitem medir — como tempo-resposta — e o que pedir ao órgão para medi-lo.</p>
+    </div>
+  </div>
+  <div class="folio"><span>Painel de Ocorrências · CBMAM</span><span>07</span></div>
+</section>
+
+<!-- ============ 8 · CAPES GLOBAL ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">BI para gestão acadêmica</div>
+    <h1 class="title" style="font-size:34pt;margin:2mm 0 3mm">Três redes, catorze universidades, um painel</h1>
+    <p class="deck" style="font-size:11pt;margin-bottom:5mm;max-width:165mm">O mapeamento da participação da UEA no programa CAPES Global — antes espalhado em anexos de proposta e planilhas — reunido num único HTML que qualquer gestor abre no navegador.</p>
+    <div class="shot"><img src="img/capes.jpg" style="height:142mm;object-fit:cover;object-position:top"></div>
+    <div class="cap"><b>Visão geral.</b> As redes Conecta Mundi (UNESP), INTER-NÓS (UFMG) e SustentNET (UNICAMP), com valores previstos para a UEA e PPGs por instituição; cada rede tem aba própria com mapa e matriz área temática × universidade.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm">
+      <div style="font-size:8.8pt">
+        <p class="dropcap">Um script Python (<b>build_dashboard.py</b>) lê a pasta de trabalho com macros via <b>openpyxl</b>, extrai do PDF de balanço os valores de bolsas previstos e cruza tudo com o cadastro do comitê no sistema de gestão da PROPESP. A saída é um único arquivo HTML autocontido, com logos embutidos e exportação para CSV.</p>
+        <p>A aba “Explorar PPGs” permite filtrar e ordenar as 738 vinculações dos anexos, e a conferência comitê × anexo aponta automaticamente divergências de cadastro.</p>
+      </div>
+      <div>
+        <div class="stats" style="grid-template-columns:1fr 1fr 1fr;gap:4mm">
+          <div class="stat"><div class="n">738</div><div class="l">vinculações PPG × rede</div></div>
+          <div class="stat"><div class="n">14</div><div class="l">universidades</div></div>
+          <div class="stat"><div class="n">16</div><div class="l">áreas temáticas</div></div>
+          <div class="stat"><div class="n">20</div><div class="l">PPGs da UEA</div></div>
+          <div class="stat"><div class="n">3</div><div class="l">redes CAPES Global</div></div>
+          <div class="stat"><div class="n">1</div><div class="l">arquivo HTML, sem servidor</div></div>
+        </div>
+        <div class="tags" style="margin-top:5mm"><span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">pdftotext</span><span class="tag">HTML/CSS/JS</span><span class="tag">CSV export</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>A UEA nas redes CAPES Global</span><span>08</span></div>
+</section>
+
+<!-- ============ 9 · SUÍTE INTERNACIONALIZAÇÃO ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Portfólio institucional · PROPESP/UEA</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">A internacionalização da UEA, painel a painel</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Uma identidade visual, um banco de dados e vários públicos: gestores, coordenadores de programa e estudantes estrangeiros.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm 6mm">
+      <div><div class="shot"><img src="img/mobilidade.jpg"></div>
+        <div class="cap"><b>Mobilidade acadêmica.</b> Estudantes estrangeiros recebidos: 66 registros, 15 países, 14 PPGs. Dados em <b>modelo estrela</b> (fato + dimensões) com dicionário de dados e medidas DAX.</div></div>
+      <div><div class="shot"><img src="img/convenios.jpg"></div>
+        <div class="cap"><b>Acordos internacionais.</b> 42 acordos em 24 países, linha do tempo de vigência e globo de fluxo a partir de Manaus. Alimentado por ETL diário Google Drive → SQLite (launchd).</div></div>
+      <div><div class="shot"><img src="img/geral.jpg"></div>
+        <div class="cap"><b>Parcerias internacionais.</b> Primeira geração do matching: 158 pesquisadores, 199 instituições e 15.644 conexões em Sankey de três níveis.</div></div>
+      <div><div class="shot"><img src="img/gcub.jpg"></div>
+        <div class="cap"><b>Edital GCUB-MOB.</b> Funil de avaliação de candidaturas em React + Recharts. A versão pública usa <b>dados fictícios</b> com a distribuição real; os dados reais só carregam localmente.</div></div>
+    </div>
+    <div class="kicker" style="margin:7mm 0 2mm">Arquitetura comum</div>
+    <div class="flow">
+      <div class="s"><b>FONTES</b><span>Planilhas no Google Drive (acordos, mobilidade, editais) e exportações de sistemas</span></div><div class="ar">→</div>
+      <div class="s"><b>ETL DIÁRIO</b><span>Python lê as planilhas pela API e consolida as tabelas de fatos e dimensões</span></div><div class="ar">→</div>
+      <div class="s"><b>SQLITE</b><span>Banco único de internacionalização, atualizado sozinho 1× por dia via launchd</span></div><div class="ar">→</div>
+      <div class="s"><b>PAINÉIS</b><span>JSON por painel → HTML/JS estático; relatório em PDF gerado no próprio navegador</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:6mm;border-top:.6mm solid var(--ink);padding-top:3mm">
+      <div><b class="serif" style="font-size:10.5pt">Uma fonte de verdade</b><p style="font-size:7.8pt;margin-top:1mm">Planilhas compartilhadas no Drive são lidas por API e consolidadas num SQLite atualizado automaticamente todo dia.</p></div>
+      <div><b class="serif" style="font-size:10.5pt">Privacidade por padrão</b><p style="font-size:7.8pt;margin-top:1mm">Nada de CPF, passaporte ou e-mail nos painéis: chaves anônimas, nomes abreviados e dados sintéticos onde é público.</p></div>
+      <div><b class="serif" style="font-size:10.5pt">Custo zero de infraestrutura</b><p style="font-size:7.8pt;margin-top:1mm">Sites estáticos no GitHub Pages, com bibliotecas embutidas e relatórios em PDF gerados pelo próprio painel.</p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Internacionalização em painéis</span><span>09</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Produto em evolução · PROPESP/UEA</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Três gerações do mesmo algoritmo</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">O matching de parcerias não nasceu pronto: foi reescrito a cada pergunta nova da gestão — de um professor e um país a todos os programas e todos os convênios.</p>
+    <div class="flow" style="margin-bottom:5mm">
+      <div class="s"><b>V1 · GERBRAS</b><span>Professor × pesquisador estrangeiro por palavras-chave do OpenAlex. Um país por vez (Alemanha).</span></div><div class="ar">→</div>
+      <div class="s"><b>V2 · FAAP</b><span>Linha de pesquisa oficial × publicações, com Sentence-BERT. 10 países e classificação em ODS.</span></div><div class="ar">→</div>
+      <div class="s"><b>V3 · CONVÊNIOS</b><span>Mesma metodologia aplicada a todas as instituições com acordo vigente, inclusive brasileiras.</span></div>
+    </div>
+    <div class="shot"><img src="img/gerbas.jpg" style="height:96mm;object-fit:cover;object-position:left top"></div>
+    <div class="cap"><b>GERBRAS — primeira versão.</b> Sankey de linhas de pesquisa × instituições alemãs: 158 pesquisadores, 207 instituições e 1.306 conexões, com ranking de pesquisadores estrangeiros por número de vínculos.</div>
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:6mm;margin-top:5mm;align-items:start">
+    <div><div class="shot"><img src="img/matchs.jpg"></div>
+    <div class="cap"><b>FAAP Convênios.</b> 19 das 42 instituições conveniadas têm match com as linhas da UEA, somando 27.304 conexões. O indicador compara direto com o painel de acordos, para mostrar onde o convênio existe no papel mas ainda não tem pesquisa em comum.</div></div>
+    <div>
+      <div class="stats" style="grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm">
+        <div class="stat"><div class="n" style="font-size:19pt">1.306</div><div class="l">conexões na V1 (1 país)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">58.084</div><div class="l">conexões na V2 (10 países)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">27.304</div><div class="l">conexões com conveniadas (V3)</div></div>
+        <div class="stat"><div class="n" style="font-size:19pt">19/42</div><div class="l">conveniadas com pesquisa em comum</div></div>
+      </div>
+      <div class="box"><h4>Lição de produto</h4><p style="margin:0">A unidade de análise mudou de “professor” para “linha de pesquisa oficial”: os resultados ficaram estáveis, explicáveis e alinhados com a forma como a universidade se organiza.</p></div>
+    </div>
+    </div>
+      </div>
+  <div class="folio"><span>Evolução do matching</span><span>10</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Do painel ao documento executivo</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Quando a diretoria pede um PDF</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Painel interativo serve para explorar; reunião com reitor e parceiros estrangeiros pede documento. Os mesmos dados viram relatórios executivos gerados por código.</p>
+    <div style="display:grid;grid-template-columns:54mm 54mm 1fr;gap:5mm;align-items:start">
+      <div><div class="shot"><img src="img/rel_eua_capa.jpg"></div><div class="cap"><b>Capa.</b> Relatório Estados Unidos.</div></div>
+      <div><div class="shot"><img src="img/rel_eua_p2.jpg"></div><div class="cap"><b>Panorama.</b> Síntese por instituição e programa.</div></div>
+      <div style="font-size:8.6pt">
+        <p class="dropcap">Para cada missão internacional, um script lê os números diretamente da base do painel, monta o relatório em HTML, gera a versão editável em Word e exporta o PDF com o Chrome em modo headless. Nenhum número é digitado à mão.</p>
+        <p>Na versão dos EUA, os programas da rede de cooperação com a UFMG aparecem primeiro em cada instituição, como pediu a gestão — uma mudança de regra de negócio, não de layout.</p>
+        <div class="stats" style="grid-template-columns:1fr 1fr;gap:3mm;margin-top:3mm">
+          <div class="stat"><div class="n" style="font-size:19pt">13.445</div><div class="l">conexões no relatório EUA</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">8.239</div><div class="l">pesquisadores estrangeiros</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">10</div><div class="l">instituições americanas</div></div>
+          <div class="stat"><div class="n" style="font-size:19pt">3</div><div class="l">missões: EUA, Itália e Reino Unido</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:6mm">
+      <div><div class="shot"><img src="img/mob_flow.jpg"></div><div class="cap"><b>Mapa de fluxo da mobilidade.</b> Origem e destino dos estudantes, com espessura proporcional ao volume.</div></div>
+      <div><div class="shot"><img src="img/redes.jpg"></div><div class="cap"><b>Painel por rede CAPES Global.</b> Versão de reunião, com orçamento por área temática e mapa das universidades parceiras — e exportação em PDF.</div></div>
+    </div>
+    <div class="tags" style="margin-top:4mm"><span class="tag">python-docx</span><span class="tag">HTML → PDF</span><span class="tag">Chrome headless</span><span class="tag">relatórios reprodutíveis</span></div>
+  </div>
+  <div class="folio"><span>Relatórios executivos</span><span>11</span></div>
+</section>
+
+<!-- ============ 10 · BIBLIOMETRIA + SECOND BRAIN ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Ciência de dados para a própria ciência</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 5mm">Medir a pesquisa e organizar o conhecimento</h1>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm">
+      <div>
+        <div class="shot"><img src="img/levulinico.jpg" style="height:132mm;object-fit:cover;object-position:center top"></div>
+        <div class="cap"><b>Bibliometria: ácido levulínico no Brasil.</b> Produção por ano, instituições, compostos, pesquisadores e periódicos.</div>
+        <h3 class="serif" style="font-size:13pt;margin:4mm 0 2mm">Um mapa da pesquisa brasileira em biorrefinaria</h3>
+        <p style="font-size:8.5pt">DOIs coletados por busca avançada no ScienceDirect foram enriquecidos com metadados do <b>OpenAlex</b> e do <b>Semantic Scholar</b> (autores, afiliações, citações, resumos). Regras de classificação por regex agruparam os trabalhos por derivado químico e rota de síntese, e a curadoria manual separou o que de fato trata do tema.</p>
+        <div class="stats" style="grid-template-columns:repeat(4,1fr);gap:2mm;margin-top:3mm">
+          <div class="stat"><div class="n" style="font-size:18pt">56</div><div class="l">trabalhos curados (de 85)</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">197</div><div class="l">pesquisadores</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">32%</div><div class="l">com colaboração internacional</div></div>
+          <div class="stat"><div class="n" style="font-size:18pt">1.937</div><div class="l">citações somadas</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="shot"><img src="img/secondbrain.jpg" style="height:132mm;object-fit:cover"></div>
+        <div class="cap"><b>Second Brain.</b> Grafo de conhecimento interativo com centenas de notas de literatura, coloridas por tema.</div>
+        <h3 class="serif" style="font-size:13pt;margin:4mm 0 2mm">Um “Obsidian” próprio, do zero</h3>
+        <p style="font-size:8.5pt">Aplicação web de gestão de conhecimento: servidor Python sem dependências, API REST sobre arquivos Markdown, índice de backlinks, busca de texto completo e grafo de forças em <b>D3.js</b> com filtros por tema e etiqueta. Alertas do Google Scholar viram notas de leitura automaticamente, e uma cópia somente leitura é publicada na web.</p>
+        <div class="tags" style="margin-top:3mm"><span class="tag">OpenAlex</span><span class="tag">Semantic Scholar</span><span class="tag">regex</span><span class="tag">pandas</span><span class="tag">D3.js</span><span class="tag">REST</span><span class="tag">Markdown</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Bibliometria · Grafo de conhecimento</span><span>12</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Projetos independentes e automações</div>
+    <h1 class="title" style="font-size:32pt;margin:2mm 0 3mm">Coletar, filtrar, decidir</h1>
+    <p class="deck" style="font-size:10.5pt;margin-bottom:5mm">Fora das instituições, a mesma caixa de ferramentas resolve problemas do dia a dia: raspagem, regras de pontuação e um HTML que cabe no celular.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm">
+      <div><div class="shot"><img src="img/leilao.jpg" style="height:104mm;object-fit:cover;object-position:left top"></div>
+        <div class="cap"><b>Imóveis da Caixa no Amazonas.</b> Raspagem da lista oficial de venda, cálculo do desconto sobre a avaliação e filtro dos que aceitam financiamento: 132 imóveis em uma tabela ordenável, com versão mobile.</div></div>
+      <div><div class="shot"><img src="img/vagas.jpg" style="height:104mm;object-fit:cover;object-position:left top"></div>
+        <div class="cap"><b>Radar de vagas.</b> Coleta de vagas públicas em várias cidades e um score ponderado por termos (título × descrição) que classifica a aderência ao currículo em alta, média ou baixa.</div></div>
+    </div>
+    <style>.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:6mm}.mini div{background:#fff;border-radius:2mm;padding:4mm;border-top:1mm solid var(--green2)}.mini b{font-family:Fraunces,serif;font-size:10.2pt;display:block;line-height:1.15;margin-bottom:1.2mm}.mini p{font-size:8pt;margin:0;text-align:left}</style>
+    <div class="mini">
+      <div><b>Sistema IQA</b><p>Primeiro dashboard: índice de qualidade da água por bacia e ponto de coleta, com modelos scikit-learn/XGBoost, previsão com Prophet, mapas Folium e relatórios em PDF (Streamlit).</p></div>
+      <div><b>Cursos da UEA</b><p>Raspagem concorrente do portal de cursos: mais de 900 ofertas de graduação, especialização e pós, com cache e contagem por nível para a demanda de internacionalização.</p></div>
+      <div><b>Monitor de editais</b><p>Rotina que busca chamadas internacionais, confere com o que já está publicado, verifica prazos vencidos e gera os blocos prontos para o site da PROPESP.</p></div>
+      <div><b>Linhas de pesquisa e Lattes</b><p>Base canônica de 166 linhas de pesquisa de 19 programas, ligada a IDs Lattes e ORCID dos docentes — a fonte de verdade do matching.</p></div>
+      <div><b>Agente de posts</b><p>Fluxo que monta o rascunho, trata a imagem e publica no Instagram e no Facebook via Graph API, sempre com aprovação manual.</p></div>
+      <div><b>Painéis no site oficial</b><p>Incorporação dos dashboards nas páginas institucionais da PROPESP, com versões corrigidas do código de embed.</p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Projetos independentes</span><span>13</span></div>
+</section>
+
+<!-- ============ 11 · SISTEMAS + COMPETÊNCIAS ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Também no portfólio</div>
+    <h1 class="title" style="font-size:30pt;margin:2mm 0 5mm">Dados dentro de sistemas de verdade</h1>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5mm">
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--green)">
+        <div class="kicker" style="color:var(--green)">PROPESP · UEA</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Gerenciador de bolsas e orçamento</h3>
+        <p style="font-size:7.8pt">Reescrita em Django + PostgreSQL do sistema de planejamento de bolsas. Importa a planilha oficial via Google Drive com prévia antes de gravar e confere linha a linha contra a fonte (191/191). Painel com <b>Sankey</b> redes → temáticas → PPGs, Gantt de vigências e simulador de remanejamento.</p>
+      </div>
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--gold)">
+        <div class="kicker" style="color:#a07a10">Varejo</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Gestão de uma ótica, do PDV ao financeiro</h3>
+        <p style="font-size:7.8pt">Sistema Django com ordens de serviço, caixa, crediário, contas a pagar e listas de retorno de clientes. Controle de acesso por perfil: custo e margem visíveis só para o dono, garantido por <b>testes automatizados</b>. Autenticação em dois fatores e backup criptografado.</p>
+      </div>
+      <div style="background:#fff;border-radius:2mm;padding:4mm;border-top:1.2mm solid var(--accent)">
+        <div class="kicker">CBA</div>
+        <h3 class="serif" style="font-size:12pt;margin:1.5mm 0 2mm;line-height:1.15">Relatórios de projetos em Power BI</h3>
+        <p style="font-size:7.8pt">No Centro de Bionegócios da Amazônia, apoio à gestão de projetos multissetoriais com <b>relatórios semiautomatizados em Power BI</b> e fluxos de dados em Python, reduzindo o trabalho manual de consolidação.</p>
+      </div>
+    </div>
+
+    <div class="kicker" style="margin:8mm 0 3mm">Caixa de ferramentas</div>
+    <style>.tk{display:grid;grid-template-columns:38mm 1fr;border-top:.3mm solid var(--rule);padding:3.1mm 0}.tk b{font-family:Fraunces,serif;font-size:10.5pt}.tk span{font-size:8.3pt;color:var(--ink2)}</style>
+    <div style="border-bottom:.3mm solid var(--rule)">
+      <div class="tk"><b>Linguagens</b><span>Python · SQL · JavaScript · DAX · HTML/CSS</span></div>
+      <div class="tk"><b>Dados &amp; ETL</b><span>pandas · SQLite · PostgreSQL · openpyxl · extração de PDF (pdftotext + regex) · Google Drive API · validação de esquema · agendamento (launchd/cron)</span></div>
+      <div class="tk"><b>APIs</b><span>OpenAlex · ORCID · Semantic Scholar · PubChem PUG REST · Google Sheets/Drive · Meta Graph API</span></div>
+      <div class="tk"><b>Estatística &amp; ML</b><span>scikit-learn · XGBoost · SVR · Random Forest · GridSearchCV · SHAP · statsmodels (ANOVA, VIF) · SciPy (regressão não linear, evolução diferencial) · RSM/DoE</span></div>
+      <div class="tk"><b>NLP</b><span>Sentence-BERT (embeddings, similaridade de cosseno) · spaCy (lematização) · classificação semântica (ODS)</span></div>
+      <div class="tk"><b>Visualização</b><span>Power BI · D3.js · Plotly · Leaflet · Recharts · Sankey, globos de fluxo, mapas de calor · design claro/escuro</span></div>
+      <div class="tk"><b>Engenharia</b><span>Git/GitHub · GitHub Pages · Django · Flask · React + Vite · Docker · testes automatizados (pytest) · desenvolvimento assistido por IA (Claude Code)</span></div>
+      <div class="tk"><b>Domínio científico</b><span>Quimiometria · DFT (pyscf, RDKit) · técnicas analíticas (HPLC, GC-MS, ICP-OES, DRX, FTIR) · catálise e biorrefinaria</span></div>
+      <div class="tk"><b>Governança</b><span>LGPD e privacidade por padrão · documentação de KPIs e limitações · dados sintéticos para publicação</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sistemas · Competências</span><span>14</span></div>
+</section>
+
+<section class="page">
+  <div class="pad">
+    <div class="kicker">Índice completo</div>
+    <h1 class="title" style="font-size:30pt;margin:2mm 0 2mm">35 projetos, 17 painéis</h1>
+    <p class="deck" style="font-size:10pt;margin-bottom:4mm">Tudo o que foi construído em 2026, agrupado por área. ● painel interativo · ◆ publicado na web</p>
+    <style>.idx{column-count:2;column-gap:7mm}.idx h4{font-family:'JetBrains Mono',monospace;font-size:6.8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:2.5mm 0 1mm;break-after:avoid}.idx div{display:grid;grid-template-columns:5mm 1fr;padding:1.15mm 0;border-bottom:.25mm solid var(--rule);break-inside:avoid}.idx .k{font-family:Fraunces,serif;font-weight:900;font-size:8.5pt;color:var(--green)}.idx b{font-size:7.9pt;font-weight:600}.idx span.d{display:block;font-size:6.9pt;color:var(--ink2);line-height:1.3}</style>
+    <div class="idx">
+      <h4>Internacionalização · PROPESP/UEA</h4>
+      <div><span class="k">1</span><span><b>FAAP — prospecção PPG × universidades ●◆</b><span class="d">Sentence-BERT, OpenAlex, ODS · 58.084 conexões</span></span></div>
+      <div><span class="k">2</span><span><b>FAAP Convênios ●</b><span class="d">matching com as 42 instituições conveniadas</span></span></div>
+      <div><span class="k">3</span><span><b>GERBRAS — parcerias v1 ●◆</b><span class="d">professor × pesquisador por palavra-chave</span></span></div>
+      <div><span class="k">4</span><span><b>Parcerias internacionais (geral) ●◆</b><span class="d">7 países, 15.644 conexões</span></span></div>
+      <div><span class="k">5</span><span><b>Acordos internacionais ●◆</b><span class="d">42 acordos, globo de fluxo, vigências</span></span></div>
+      <div><span class="k">6</span><span><b>Mobilidade acadêmica ●◆</b><span class="d">modelo estrela, DAX, mapa de fluxo</span></span></div>
+      <div><span class="k">7</span><span><b>GCUB-MOB ●◆</b><span class="d">React + Recharts, dados sintéticos no público</span></span></div>
+      <div><span class="k">8</span><span><b>UEA nas redes CAPES Global ●◆</b><span class="d">Excel + PDF → HTML autocontido</span></span></div>
+      <div><span class="k">9</span><span><b>Painel das redes para reunião ●</b><span class="d">orçamento por área temática, exporta PDF</span></span></div>
+      <div><span class="k">10</span><span><b>Relatórios executivos de prospecção</b><span class="d">EUA, Itália e Reino Unido · HTML → DOCX/PDF</span></span></div>
+      <div><span class="k">11</span><span><b>ETL Google Drive → SQLite</b><span class="d">service account, atualização diária (launchd)</span></span></div>
+      <div><span class="k">12</span><span><b>Base de linhas de pesquisa + Lattes/ORCID</b><span class="d">166 linhas, 19 programas</span></span></div>
+      <div><span class="k">13</span><span><b>Raspagem de cursos da UEA</b><span class="d">900+ ofertas, coleta concorrente com cache</span></span></div>
+      <div><span class="k">14</span><span><b>Monitor de editais internacionais</b><span class="d">controle de duplicidade e prazos</span></span></div>
+      <div><span class="k">15</span><span><b>Painéis incorporados ao site da PROPESP</b><span class="d">embed nas páginas institucionais</span></span></div>
+      <div><span class="k">16</span><span><b>Gerenciador de bolsas e orçamento ●</b><span class="d">Django + PostgreSQL, Sankey, Gantt</span></span></div>
+      <h4>Ciência e pesquisa</h4>
+      <div><span class="k">17</span><span><b>Quimiometria Vagem/Palma ●◆</b><span class="d">ML/SHAP, RSM, isotermas, DFT</span></span></div>
+      <div><span class="k">18</span><span><b>Sistema IQA — qualidade da água ●</b><span class="d">Streamlit, XGBoost, Prophet, Folium</span></span></div>
+      <div><span class="k">19</span><span><b>Bibliometria do ácido levulínico ●</b><span class="d">ScienceDirect + OpenAlex + Semantic Scholar</span></span></div>
+      <div><span class="k">20</span><span><b>Second Brain ●◆</b><span class="d">app de conhecimento com grafo D3</span></span></div>
+      <div><span class="k">21</span><span><b>Vault de pesquisa + agente de leitura</b><span class="d">alertas do Scholar → notas de literatura</span></span></div>
+      <div><span class="k">22</span><span><b>Biblioteca de automações com IA</b><span class="d">skills versionadas para fluxos recorrentes</span></span></div>
+      <h4>Setor público</h4>
+      <div><span class="k">23</span><span><b>Ocorrências do Corpo de Bombeiros ●◆</b><span class="d">ETL de PDF, mapa Leaflet, LGPD</span></span></div>
+      <h4>Negócios</h4>
+      <div><span class="k">24</span><span><b>Sistema de gestão de ótica ●</b><span class="d">Django, PDV, financeiro, catálogo de lentes</span></span></div>
+      <div><span class="k">25</span><span><b>Agente de posts para redes sociais</b><span class="d">Graph API, aprovação por post</span></span></div>
+      <div><span class="k">26</span><span><b>Diagnóstico de perfil no Google Meu Negócio</b><span class="d">análise de presença digital local</span></span></div>
+      <div><span class="k">27</span><span><b>Guia de lançamento de infoprodutos</b><span class="d">pesquisa de mercado e fontes web</span></span></div>
+      <div><span class="k">28</span><span><b>Relatórios em Power BI · CBA</b><span class="d">gestão de projetos multissetoriais</span></span></div>
+      <h4>Independentes</h4>
+      <div><span class="k">29</span><span><b>Imóveis da Caixa no Amazonas ●</b><span class="d">raspagem, desconto, filtro de financiamento</span></span></div>
+      <div><span class="k">30</span><span><b>Radar de vagas ●</b><span class="d">coleta + score de aderência</span></span></div>
+      <div><span class="k">31</span><span><b>Auditoria de pegada digital</b><span class="d">OSINT sobre a própria presença online</span></span></div>
+      <div><span class="k">32</span><span><b>Pesquisa genealógica documental</b><span class="d">registros históricos, grau de evidência</span></span></div>
+      <div><span class="k">33</span><span><b>Folder comemorativo (HTML → PDF)</b><span class="d">diagramação editorial por código</span></span></div>
+      <div><span class="k">34</span><span><b>Explorações de IA generativa</b><span class="d">modelagem 3D e engenharia reversa de modelos</span></span></div>
+      <div><span class="k">35</span><span><b>Este portfólio</b><span class="d">HTML → PDF, PT e EN</span></span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Índice completo</span><span>15</span></div>
+</section>
+<!-- ============ 12 · CONTRACAPA ============ -->
+<section class="page dark">
+  <div class="pad">
+    <div class="kicker" style="color:var(--gold)">Contracapa</div>
+    <h1 class="title" style="font-size:44pt;color:#fff;margin:2mm 0 4mm">Vamos conversar sobre os seus dados?</h1>
+    <p class="deck" style="font-size:12pt;color:#c6dacb;max-width:150mm;margin-bottom:8mm">Aponte a câmera e explore os painéis ao vivo — são os mesmos sistemas mostrados nesta edição.</p>
+
+    <style>.qrs{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}.qr{background:#f5f2ea;border-radius:2mm;padding:4mm;display:flex;gap:3.5mm;align-items:center}.qr img{width:22mm;height:22mm}.qr b{font-family:Fraunces,serif;font-size:10pt;color:var(--ink);display:block;line-height:1.15}.qr span{font-size:6.8pt;color:var(--muted);display:block;margin-top:1mm;line-height:1.3}</style>
+    <div class="qrs">
+      <div class="qr"><img src="img/qr_faap.svg"><div><b>FAAP · Matching com IA</b><span>Prospecção de parcerias internacionais</span></div></div>
+      <div class="qr"><img src="img/qr_vagem.svg"><div><b>Quimiometria &amp; ML</b><span>ML/XAI, RSM, isotermas e DFT</span></div></div>
+      <div class="qr"><img src="img/qr_cbmam.svg"><div><b>Ocorrências CBMAM</b><span>ETL de PDF e painel geoespacial</span></div></div>
+      <div class="qr"><img src="img/qr_capes.svg"><div><b>CAPES Global</b><span>A UEA nas 3 redes</span></div></div>
+      <div class="qr"><img src="img/qr_github.svg"><div><b>GitHub</b><span>github.com/willpine1992 — código e demais painéis</span></div></div>
+      <div class="qr"><img src="img/qr_lattes.svg"><div><b>Currículo Lattes</b><span>Formação, publicações e projetos</span></div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:10mm;margin-top:10mm;border-top:.4mm solid #2f4a3c;padding-top:6mm;color:#dfe8e1">
+      <div>
+        <div class="kicker" style="color:var(--leaf);margin-bottom:2mm">Formação</div>
+        <p style="font-size:8.6pt;text-align:left"><b>Doutorado em Química — Materiais e Interfaces</b> — UFAM, 2021–2026, com doutorado-sanduíche CAPES na Università di Pisa (Itália)<br>
+        <b>Mestrado em Biotecnologia e Recursos Naturais da Amazônia</b> — UEA, 2019–2021<br>
+        <b>Bacharelado em Química</b> — UEA, 2015–2018<br>
+        <b>Técnico em Química</b> — IFAM · <b>Tecnólogo em Petróleo e Gás</b> — UNINORTE</p>
+        <div class="kicker" style="color:var(--leaf);margin:4mm 0 2mm">Produção científica</div>
+        <p style="font-size:8.6pt;text-align:left">7 artigos em periódicos (Bioresource Technology, Renewable Energy, Environmental Science and Pollution Research, entre outros) · 2 capítulos de livro (Elsevier, Wiley) · 184 citações no Google Scholar</p>
+      </div>
+      <div>
+        <div class="kicker" style="color:var(--leaf);margin-bottom:2mm">Contato</div>
+        <div class="serif" style="font-size:22pt;font-weight:900;color:#fff;line-height:1">William Pinheiro</div>
+        <div class="mono" style="font-size:7.5pt;color:var(--leaf);margin:1.5mm 0 4mm;letter-spacing:.1em">QUÍMICO · ANÁLISE DE DADOS COM IA</div>
+        <p style="font-size:8.8pt;text-align:left;line-height:1.7">williampinheiro1992@gmail.com<br>Manaus, AM<br>ORCID 0000-0003-0758-8292<br>lattes.cnpq.br/9111919283952655</p>
+        <div class="kicker" style="color:var(--leaf);margin:4mm 0 2mm">Idiomas</div>
+        <p style="font-size:8.6pt;text-align:left">Português (nativo) · Inglês B1 · Italiano A2 · Francês A2</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Portfólio de Dados · Edição 01 · 2026</span><span>16</span></div>
+</section>
+
+<style>
+.cv{background:#fff}
+.cv .pad{inset:13mm 15mm 14mm 15mm}
+.cv h2{font-family:'JetBrains Mono',monospace;font-size:7.6pt;letter-spacing:.16em;text-transform:uppercase;color:var(--green);border-bottom:.4mm solid var(--green);padding-bottom:1mm;margin:4.2mm 0 2.2mm}
+.cv p,.cv li{font-size:8.5pt;line-height:1.42;text-align:left}
+.cv ul{padding-left:4mm;margin:1mm 0 0}.cv li{margin-bottom:.9mm}
+.cv .job{margin-bottom:2.8mm}
+.cv .jh{display:flex;justify-content:space-between;align-items:baseline}
+.cv .jh b{font-size:9.2pt}.cv .jh span{font-family:'JetBrains Mono',monospace;font-size:7pt;color:var(--muted)}
+.cv .org{font-size:8pt;color:var(--ink2);font-style:italic}
+.cv .sk{display:grid;grid-template-columns:30mm 1fr;gap:.6mm 3mm;font-size:8.3pt}
+.cv .sk b{font-weight:600}
+</style>
+<section class="page cv">
+  <div class="pad">
+    <div class="kicker">Encarte · Currículo</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:2mm">
+      <div>
+        <div class="serif" style="font-size:28pt;font-weight:900;line-height:1">William Pinheiro</div>
+        <div style="font-size:10.5pt;font-weight:600;color:var(--green);margin-top:1.5mm">Doutor em Química de Materiais · Análise de Dados com IA</div>
+      </div>
+      <div class="mono" style="font-size:7.2pt;text-align:right;line-height:1.6;color:var(--ink2)">Manaus, AM<br>williampinheiro1992@gmail.com<br>github.com/willpine1992<br>lattes.cnpq.br/9111919283952655</div>
+    </div>
+
+    <h2>Resumo</h2>
+    <p>Químico, doutor em Química de Materiais e Interfaces (UFAM, com sanduíche na Università di Pisa), com experiência em catálise heterogênea, biomassa e técnicas analíticas. Minha especialidade é a Química; faço análise de dados com apoio de ferramentas de IA generativa para programar — eu defino as perguntas, escolho os métodos, valido os resultados e faço a interpretação química. Aplico isso em quimiometria e machine learning explicável e em painéis de dados para a gestão universitária (17 painéis construídos, 10 publicados na web).</p>
+
+    <h2>Objetivo</h2>
+    <p>Atuar em <b>análise de dados aplicada à química</b> — P&amp;D, laboratórios, controle de qualidade, materiais, bioeconomia e indústria química —, unindo conhecimento de domínio a modelagem estatística, machine learning e visualização.</p>
+
+    <h2>Competências</h2>
+    <div class="sk">
+      <b>Química (especialidade)</b><span>Materiais e catálise heterogênea, biomassa e biorrefinaria, adsorção; DRX, FRX, FTIR, MEV, TGA, HPLC, GC-MS, ICP-OES; DFT (pyscf)</span>
+      <b>Quimiometria</b><span>DoE/RSM, ANOVA, VIF, regressão não linear (isotermas e cinética), funções de erro, ML explicável (SHAP)</span>
+      <b>Análise e BI</b><span>Power BI (modelo estrela, DAX), definição de KPIs, dashboards interativos, relatórios executivos automatizados</span>
+      <b>Programação</b><span>Python (pandas, NumPy, SciPy), SQL (SQLite, PostgreSQL), JavaScript (D3.js, Plotly, Leaflet), Git</span>
+      <b>Dados e ETL</b><span>APIs REST, web scraping, extração de PDF com regex, Google Drive/Sheets API, validação de esquema, rotinas agendadas</span>
+      <b>Machine learning</b><span>scikit-learn, XGBoost, SVR, Random Forest, validação cruzada, GridSearchCV</span>
+      <b>NLP</b><span>Sentence-BERT (embeddings, similaridade de cosseno), spaCy, classificação semântica</span>
+      <b>IA generativa</b><span>desenvolvimento assistido por IA (Claude Code) com revisão crítica, testes e verificação dos resultados</span>
+    </div>
+
+    <h2>Experiência</h2>
+    <div class="job">
+      <div class="jh"><b>Pesquisador de pós-doutorado — Dados e Internacionalização</b><span>2026 – atual</span></div>
+      <div class="org">Pró-Reitoria de Pesquisa e Pós-Graduação (PROPESP) · Universidade do Estado do Amazonas</div>
+      <ul>
+        <li>Criou o FAAP, sistema de matching de parcerias com Sentence-BERT e OpenAlex: 29 programas, 323 docentes, 384 instituições estrangeiras e 58.084 conexões ranqueadas.</li>
+        <li>Construiu e mantém 10 painéis públicos (acordos, mobilidade, editais, redes CAPES Global) sobre um banco SQLite alimentado por ETL diário a partir do Google Drive.</li>
+        <li>Automatizou os relatórios executivos das missões internacionais (EUA, Itália, Reino Unido): dados do painel → HTML → Word/PDF, sem digitação manual.</li>
+        <li>Reescreveu o sistema de planejamento de bolsas em Django + PostgreSQL, com importação conferida linha a linha contra a planilha oficial (191/191).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Bolsista — Gestão de Projetos e Relatórios</b><span>2025 – 2026</span></div>
+      <div class="org">Centro de Bionegócios da Amazônia (CBA)</div>
+      <ul>
+        <li>Desenvolveu relatórios semiautomatizados em Power BI para a gestão de projetos multissetoriais e fluxos de dados em Python para consolidação.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Doutorando em Química de Materiais — Central Analítica</b><span>2021 – 2025</span></div>
+      <div class="org">Universidade Federal do Amazonas (UFAM) · doutorado-sanduíche na Università di Pisa, Itália</div>
+      <ul>
+        <li>Desenvolveu catalisadores heterogêneos de caulim sulfatado e de nióbio para converter resíduos de biomassa amazônica em produtos de valor agregado.</li>
+        <li>Caracterizou materiais e quantificou produtos por DRX, FRX, FTIR, MEV, TGA, HPLC e GC-MS, tratando os dados com quimiometria.</li>
+        <li>Coautor de 7 artigos em periódicos internacionais (184 citações) e 2 capítulos de livro (Elsevier, Wiley).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Consultor de vendas — planos de saúde</b><span>2021 – 2022</span></div>
+      <ul><li>Gestão de funil e carteira de leads em CRM e prospecção por tráfego pago.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Operador de processo petroquímico</b><span>2012 – 2015</span></div>
+      <div class="org">Videolar S/A · produção de poliestireno</div>
+    </div>
+  </div>
+</section>
+
+<section class="page cv">
+  <div class="pad">
+    <h2 style="margin-top:0">Projetos selecionados</h2>
+    <div class="job">
+      <div class="jh"><b>Painel de Ocorrências — Corpo de Bombeiros do Amazonas</b><span>Python · regex · Leaflet</span></div>
+      <ul><li>ETL de relatórios de turno em PDF, com deduplicação por ID e extração de métricas de texto livre; 288 ocorrências, KPIs documentados e nenhum dado pessoal exposto (LGPD).</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Quimiometria de bioadsorção com ML explicável</b><span>scikit-learn · SHAP · statsmodels</span></div>
+      <ul><li>ETL com validação da planilha de laboratório, comparação RF/XGBoost/SVR (R² de teste 0,859), ANOVA e RSM com seleção por VIF, ajuste não linear de isotermas e cálculos DFT.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>UEA nas redes CAPES Global</b><span>openpyxl · pdftotext</span></div>
+      <ul><li>Consolidação de pasta de trabalho com macros e PDF de orçamento em um painel HTML autocontido: 738 vínculos, 14 universidades e conferência automática de divergências.</li></ul>
+    </div>
+    <div class="job">
+      <div class="jh"><b>Bibliometria e raspagens</b><span>OpenAlex · Semantic Scholar</span></div>
+      <ul><li>Mapa da pesquisa brasileira sobre ácido levulínico (56 trabalhos curados, 1.937 citações); raspagem de 900+ cursos da UEA; monitor de imóveis da Caixa com filtro de financiamento.</li></ul>
+    </div>
+
+    <h2>Formação</h2>
+    <div class="job"><div class="jh"><b>Doutorado em Química — Materiais e Interfaces</b><span>2021 – 2026</span></div><div class="org">UFAM · sanduíche CAPES na Università di Pisa (2024–2025) · tese: catalisadores heterogêneos de caulim sulfatado e nióbio para valorização de resíduos</div></div>
+    <div class="job"><div class="jh"><b>Mestrado em Biotecnologia e Recursos Naturais da Amazônia</b><span>2019 – 2021</span></div><div class="org">Universidade do Estado do Amazonas</div></div>
+    <div class="job"><div class="jh"><b>Bacharelado em Química</b><span>2015 – 2018</span></div><div class="org">Universidade do Estado do Amazonas</div></div>
+    <div class="job"><div class="jh"><b>Técnico em Química · Tecnólogo em Petróleo e Gás</b><span>2013 – 2015 · 2010 – 2012</span></div><div class="org">IFAM · UNINORTE</div></div>
+
+    <h2>Idiomas</h2>
+    <p>Português (nativo) · Inglês B1 · Italiano A2 · Francês A2</p>
+
+    <h2>Diferenciais</h2>
+    <ul>
+      <li>Químico antes de tudo: entende de onde vêm os dados de laboratório, seus erros e o que eles significam quimicamente.</li>
+      <li>Entrega completa: da fonte bruta ao painel publicado, com documentação e reprodutibilidade.</li>
+      <li>Transparência sobre o uso de IA: o código é escrito com apoio de IA generativa; método, validação e interpretação são responsabilidade própria.</li>
+    </ul>
+
+    <div style="position:absolute;left:0;right:0;bottom:0;border-top:.3mm solid var(--rule);padding-top:3mm;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6.8pt;color:var(--muted)">
+      <span>Portfólio completo e painéis ao vivo: github.com/willpine1992</span><span>Currículo · 2/2</span>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<script>
+(function(){
+  var T={pt:{t:"Portfólio · William Pinheiro · Dados",pdf:"Portfolio_William_Pinheiro_Dados.pdf",l:"pt-BR"},
+         en:{t:"Portfolio · William Pinheiro · Data",pdf:"Portfolio_William_Pinheiro_Data_EN.pdf",l:"en"}};
+  function set(k){
+    var c=T[k];document.documentElement.lang=c.l;document.title=c.t;
+    document.getElementById("pdf").href=c.pdf;
+    document.querySelectorAll(".bar button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===k)});
+    try{history.replaceState(null,"","#"+k)}catch(e){}
+  }
+  var h=location.hash.slice(1);
+  var k=T[h]?h:((navigator.language||"").toLowerCase().indexOf("pt")===0?"pt":"en");
+  document.querySelectorAll(".bar button").forEach(function(b){b.onclick=function(){set(b.dataset.l)}});
+  function fit(){
+    var w=document.documentElement.clientWidth-32, mm=210*96/25.4;
+    document.documentElement.style.setProperty("--z",Math.min(1.25,w/mm).toFixed(3));
+  }
+  addEventListener("resize",fit);fit();set(k);
+})();
+</script>
+
+</body>
+</html>
